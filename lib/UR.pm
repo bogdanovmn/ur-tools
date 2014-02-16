@@ -42,8 +42,9 @@ sub controller {
 }
 
 sub _api_client {
+	#webug request->base()->host();
 	return UR::Client->new(
-		callback => request->base(). 'callback',
+		callback => 'http://'. request->base->host. '/callback',
 		session_method => \&session
 	);
 }
@@ -52,7 +53,7 @@ hook 'before' => sub {
 	# Если есть токен - ок
 	# Иначе перенаправляем на страницу с просьбой получить разрешение 
 	# на использование ресурсов игры
-	my $path = request->path();
+	my $path = request->path_info();
 	if ($path eq '/callback') {
 		var consumer => _api_client();
 	}
@@ -63,6 +64,7 @@ hook 'before' => sub {
 			var consumer => $consumer;
 		}
 		else {
+			session->destroy;
 			redirect $consumer->auth_url;
 		}
 	}
@@ -71,6 +73,7 @@ hook 'before' => sub {
 
 get '/callback' => sub {
 	if ( controller(action => 'AuthCallback') ) {
+		prefix undef;
 		redirect '/collection';
 	}
 	else {
@@ -93,6 +96,7 @@ get '/dubles' => sub {
 
 get '/update' => sub {
 	controller( action => 'Update' );
+	prefix undef;
 	redirect '/collection';
 };
 

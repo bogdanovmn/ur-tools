@@ -23,7 +23,8 @@ sub new {
 		consumer => $p{consumer},
 		cache => Cache->constructor(
 			fresh_time => Cache::FRESH_TIME_MINUTE * 10,
-			storage => './cache/api_calls'
+			#storage => './cache/api_calls'
+			storage => '/home/users1/r/rednikovp/domains/ur.rednikovp.myjino.ru/cache'
 		)
 	};
 

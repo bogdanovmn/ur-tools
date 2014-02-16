@@ -15,7 +15,7 @@ sub main {
 	#$import->clans;
 	#$import->characters;
 	$import->prices;
-	#$import->player;
+	$import->player;
 	$import->collection;
 	#$import->formats;
 }

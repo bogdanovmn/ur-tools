@@ -41,14 +41,9 @@ sub debug {
 sub webug {
 	my ($var) = @_;
 	
-	#print "Content-Type: text/html; charset: utf-8;\n\n";
-	#printf "<html><head><meta charset='utf-8'></head><body><pre>%s</pre></body></html>", _dumper($var);
-	print _dumper($var);
-	exit;
-}
-
-sub redirect {
-	print CGI::redirect(-url => shift);
+	print "Content-Type: text/html; charset: utf-8;\n\n";
+	printf "<html><head><meta charset='utf-8'></head><body><pre>%s</pre></body></html>", _dumper($var);
+	#print _dumper($var);
 	exit;
 }
 
