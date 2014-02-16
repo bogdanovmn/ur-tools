@@ -1,0 +1,4 @@
+SetHandler perl-script
+PerlRequire /home/users1/r/rednikovp/domains/ur.rednikovp.myjino.ru/startup.pl
+PerlResponseHandler Plack::Handler::Apache2
+PerlSetVar psgi_app /home/users1/r/rednikovp/domains/ur.rednikovp.myjino.ru/bin/app.pl

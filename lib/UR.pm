@@ -4,11 +4,12 @@ use Dancer ':syntax';
 
 use UR::Client;
 use UR::Action::Collection; 
+use UR::Action::Dubles; 
 use UR::Action::Update; 
 use UR::Action::AuthCallback; 
 use Utils;
 
-our $VERSION = '0.1';
+our $VERSION = '0.1002';
 
 sub _template {
 	my $content = Dancer::template(@_);
@@ -21,28 +22,29 @@ sub controller {
 	
 	my $template_name = $p{template} || '';
 	my $action_name = $p{action} || '';
+	
 	my $action_class = 'UR::Action::'. $action_name;
 	my $action_params = {
 		Dancer::params(),
 		%{Dancer::vars()}
 	};
 
-#webug [request->body(), params()];
-#webug [$action_name, $template_name, $action_params];
 	# Если задан шаблон - возращаем результат рендера
 	# Если шаблона не задан - возвращаем реультат экшена
-	return $template_name
-		? _template( 
+	if ($template_name) {
+		return _template( 
 			$template_name,
 			$action_name
 				? $action_class->main($action_params)
 				: {}
-		)
-		: $action_class->main($action_params);
+		);
+	}
+	else {
+		return $action_class->main($action_params);
+	}
 }
 
 sub _api_client {
-	#webug request->base()->host();
 	return UR::Client->new(
 		callback => 'http://'. request->base->host. '/callback',
 		session_method => \&session
@@ -70,10 +72,19 @@ hook 'before' => sub {
 	}
 };
 
+hook 'before_template_render' => sub {
+	my ($template_params) = @_;
+
+	if (vars->{player_id}) {
+		my $player_data = UR::Store::Player->choose(vars->{player_id})->load;
+		#while (my ($k, $v) = each %{UR::Store::Player->choose(vars->{player_id})->load}) {
+		#	$template_params->{$k} = $v;
+		#}
+	}
+};
 
 get '/callback' => sub {
 	if ( controller(action => 'AuthCallback') ) {
-		prefix undef;
 		redirect '/collection';
 	}
 	else {
@@ -91,12 +102,11 @@ post '/collection' => sub {
 };
 
 get '/dubles' => sub {
-	controller( template => 'dubles', action => 'Collection' );
+	controller( template => 'dubles', action => 'Dubles' );
 };
 
 get '/update' => sub {
 	controller( action => 'Update' );
-	prefix undef;
 	redirect '/collection';
 };
 

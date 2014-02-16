@@ -1,12 +1,12 @@
 <div id=top_menu>
 	<div id=links>
-		<a href='/statistic.cgi'>Statistic</a>
+		<a href='/statistic'>Statistic</a>
 		::
-		<a href='/collection.cgi'>Collection</a>
+		<a href='/collection'>Collection</a>
 		::
-		<a href='/dubles.cgi'>Dubles</a>
+		<a href='/dubles'>Dubles</a>
 		::
-		<a href='/update.cgi?chars=1'>Update</a>
+		<a href='/update'>Update</a>
 	</div>
 	<div id=user_info>
 		<TMPL_VAR NAME="grade"> 

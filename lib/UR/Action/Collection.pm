@@ -12,7 +12,7 @@ use Utils;
 
 sub main {
 	my ($class, $params) = @_;
-#webug $params;	
+	
 	my %filter = (
 		clan => defined $params->{clan} ? Utils::to_list($params->{clan}) : [],
 		level => defined $params->{level} ? Utils::to_list($params->{level}) : [],
