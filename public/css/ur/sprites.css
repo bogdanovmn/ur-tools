@@ -1,0 +1,992 @@
+@charset "UTF-8";#tooltip{position:absolute;display:none;z-index:8;top:0px;left:0px;text-align:left;border:1px
+solid #DD4;padding:2px;background-color:#FF9;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px}
+.bubble{position:absolute;left:0;top:0;text-align:left;z-index:500}
+.bubble
+div{position:relative;height:100%}
+.bubble
+.left{background-position:top left;background-repeat:no-repeat;min-height:19px}
+.bubble
+.right{background-position:top right;background-repeat:no-repeat;margin-left:16px;min-height:19px;line-height:1em}
+.bubble
+.top_left{background-image:url(http://beta.urban-rivals.com/img/v2/ui/tooltips/bubble/tl.png)}
+.bubble
+.top_right{background-image:url(http://beta.urban-rivals.com/img/v2/ui/tooltips/bubble/long_t.png);background-position:top right}
+.bubble
+.middle_left{background-image:url(http://beta.urban-rivals.com/img/v2/ui/tooltips/bubble/l.png);background-repeat:repeat-y}
+.bubble
+.middle_right{background-image:url(http://beta.urban-rivals.com/img/v2/ui/tooltips/bubble/long_r.png);background-repeat:repeat-y;padding-right:16px;clear:both}
+.bubble .middle_left,
+.bubble
+.middle_right{min-height:10px}
+.bubble
+.bottom_left{background-image:url(http://beta.urban-rivals.com/img/v2/ui/tooltips/bubble/bl.png)}
+.bubble
+.bottom_right{background-image:url(http://beta.urban-rivals.com/img/v2/ui/tooltips/bubble/long_b.png)}
+.bubble
+.tip{width:30px;height:14px;margin-top:-1px;background-image:url(http://beta.urban-rivals.com/img/v2/ui/tooltips/bubble/tip.png);background-repeat:no-repeat}
+.bubble
+.globalContainer{margin-left:55px;min-height:50px;overflow:visible}
+.bubble .globalContainer
+.close{position:absolute;top:-12px;right:-6px}
+.bubble
+.playerInfosContainer{font-weight:bold;height:auto}
+.bubble
+.playerPicture{border:1px
+solid #666;position:absolute;left:-55px;width:48px;height:48px}
+.bubble
+.linksContainer{height:auto;padding-top:4px;font-size:11px}
+.bubble .linksContainer
+.link{display:block}#collectionDiv{display:block}#xpReserveDiv{margin-right:5px;font-size:12px;font-weight:bold}
+.cardNewDiv{position:relative;float:left;text-align:left;background-repeat:no-repeat;width:165px;height:225px;color:#FFF}
+.disabledDropLink,.disabledDropLink:hover{color:#CECECE;background-color:none;text-decoration:none}
+.cardNewDiv.l{background-image:url(http://beta.urban-rivals.com/img/v2/card/bg_l.png)}
+.cardNewDiv.r{background-image:url(http://beta.urban-rivals.com/img/v2/card/bg_r.png)}
+.cardNewDiv.u{background-image:url(http://beta.urban-rivals.com/img/v2/card/bg_u.png)}
+.cardNewDiv.c{background-image:url(http://beta.urban-rivals.com/img/v2/card/bg_c.png)}
+.cardNewDiv.gray{color:#ccc}
+.cardFrontShadow{position:absolute;top:6px;left:34px}
+.cardNewName{position:absolute;top:6px;left:34px;width:116px;text-align:center;font-weight:bold;text-shadow:2px 2px 4px #000}
+.cardNewPict{position:absolute;top:23px;left:9px;border:0px;width:140px;height:112px}
+.cardNewClanMask{position:absolute;top:3px;left:5px}
+.cardNewClanPict{position:absolute;top:11px;left:12px;width:17px;height:15px}
+.cardNewDetails{position:absolute;top:220px;left:4px;font-size:11px}
+.cardNewPH{position:absolute;top:142px;left:13px;font-size:12px;font-weight:bold}
+.cardNewPDD{position:absolute;top:180px;left:13px;font-size:12px;font-weight:bold}
+.vcenterAround{position:relative;display:table-cell;vertical-align:middle}
+.vcenterContent{position:relative}
+.cardMarketAndDeckLinks{position:absolute;top:220px;width:100%;text-align:center;color:#000}
+.cardNewPower{position:absolute;top:159px;left:53px;font-size:10px;padding:0;margin:0;line-height:12px}
+.cardNewPower
+.vcenterAround{height:24px;width:97px}
+.cardNewBonus{position:absolute;top:186px;left:53px;font-size:10px;padding:0;margin:0;line-height:10px}
+.cardNewBonus
+.vcenterAround{height:24px;width:97px}
+.cardNewFirstStar{position:absolute;top:139px;left:31px}
+.cardNewStars{position:absolute;top:140px;left:59px}
+.cardMiniStar{margin-top:2px;width:10px;height:8px}
+.cardNewXP{position:absolute;top:145px;left:36px;height:8px}
+.cardInfo{display:none;position:absolute;background-color:#FFB;top:100px;width:214px;left:-26px;font-size:10px;border:solid 1px #000;padding:2px}
+.cardClanInfo{display:none;position:absolute;background-color:#FFB;top:50px;width:210px;left:-30px;font-size:10px;border:solid 1px #000;padding:2px}
+.cardNewEloValidity{position:absolute;display:inline;left:126px;top:25px}
+.cardStandardValidity{position:absolute;display:inline;left:131px;top:117px}
+.cardOwned{position:absolute;display:inline;left:120px;top:-1px}
+.cardNewDiv.l
+.cardMinPrice{display:none}
+.cardMinPrice{position:absolute;width:156px;top:118px;text-align:center}
+.cardMinPrice
+div{height:14px;line-height:14px;white-space:nowrap;vertical-align:top}
+.cardMinPrice .sprite-cards.clintz_middle{display:inline-block;width:auto;color:#FFD141;font-size: .9em;*width:50%;_width:2px}
+.inDeck{background-color:#fdd}
+.outDeck{background-color:#dfd}a.tabableLinks{display:block;float:left;padding:0.5em 1em;margin-left:5px;margin-top:7px;line-height:15px;min-height:15px;border:1px
+solid #CCC;color:#333;font-size:10px;background-color:#ddd;border-bottom-color:#CCC;border-radius:5px;border-bottom-left-radius:0;border-bottom-right-radius:0;outline:none}@media (max-width: 480px){a.tabableLinks{display:none}}a.tabableLinks:hover{background-color:#eaeaea}a.tabableLinks.active{padding:0.5em 1em;background-color:#fff;margin-top:0px;line-height:20px;min-height:20px;border-bottom:1px solid #fff;font-size:12px;font-weight:bold;cursor:text;color:#000;text-decoration:none}
+.tabable_container{width:101%;margin-left:-.5%}ul.tabable{display:block;clear:both;list-style-type:none;margin:0;padding:0;border:1px
+solid #CCC;border-left:0;border-right:0;background-color:#fff;background-image:url(http://beta.urban-rivals.com/img/loading.gif);background-position:50% 50%;background-repeat:no-repeat;line-height:1.3em;min-height:32px;_height:32px;box-shadow:0 -5px 5px -5px rgba(0,0,0,0.3)}ul.tabable.ieTabableBg{background-image:none}ul.tabable.tabableBg{background:-moz-linear-gradient(center top, white 42%, whitesmoke 86%);background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0.42, white), color-stop(0.86, whitesmoke))}ul.tabable
+li.tabableItem{position:relative;display:none;margin:0.5em}
+.tabable-dropdown{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding:0.5em 1em;color:#333;background-color:#FFF;border:1px
+solid #CCC;border-bottom-color:#FFF;border-top-left-radius:5px;border-top-right-radius:5px;cursor:pointer}
+.tabable-dropdown-container{display:none;position:relative;margin:7px
+0 0 5px}@media (max-width: 480px){.tabable-dropdown-container{display:inline-block}}
+.tabable-dropdown-container:after{content:"▼";position:absolute;top:7px;right:12px;width:16px;height:16px;line-height:16px;background:#FFF;color:#C05017;text-align:center}#characterSale{text-align:left;cursor:default;margin-top:13px}#characterSale
+div{height:20px}#characterSale
+#formRadios{height:60px}#characterSale
+.formButtons{text-align:center;height:auto}#characterSale input[name=price]{margin-left:6px;margin-right:6px;width:80px}#characterSale input[name=buyerName]{margin-left:6px;width:80px}
+.common{color:#CB4300;border-color:#CB4300}
+.uncommon{color:#3F3F3F;border-color:#3F3F3F}
+.rare{color:#FFA200;border-color:#FFA200}
+.cr,.collector{color:#FC0;border-color:#FC0}div.reserve{display:inline-block;vertical-align:middle}div.reserve
+.container{width:233px;height:27px;background-image:url(http://beta.urban-rivals.com/img/v2/ui/XPReserve.png)}div.reserve.guild_reserve
+.container{background-image:url(http://beta.urban-rivals.com/img/v2/ui/XPGuildReserve.png)}div.reserve
+.container.disabled{background-image:url(http://beta.urban-rivals.com/img/v2/ui/XPReserve_disabled.png)}div.reserve .container .status,
+div.reserve .container
+.progressbar{margin-left:45px;width:168px}div.reserve .container
+.status{line-height:17px;text-align:center}div.reserve .container .status,
+div.reserve .container .status
+*{font-size:9px;font-weight:bolder}div.reserve .container
+.progressbar{border:1px
+solid black;background-color:#A66400;border-radius:5px;-moz-border-radius:5px;overflow:hidden;*padding:0;*height:6px}div.reserve .container.disabled
+.progressbar{background-color:#717171}div.guild_reserve .container
+.progressbar{background-color:#1A0D2C}div.reserve .container .progressbar
+.current{width:50%;height:6px;*vertical-align:top}div.reserve_info{display:inline-block;vertical-align:middle;max-width:470px;margin-left:10px}
+.charactersList{margin:5px
+0;overflow:auto}
+.charactersList
+.column{float:left;margin-right:10px}
+.charactersList
+.character{margin-bottom:5px;padding-right:5px;cursor:pointer}
+.charactersList .character:nth-child(2n+1){}
+.charactersList .character:nth-child(2n){}
+.charactersList .character:hover{background-color:#2C9ECF;color:#FFF}
+.charactersList .character
+img.vig160{vertical-align:middle;margin-right:7px;border:1px
+solid #000}
+.charactersList .character
+img.clan128{vertical-align:text-bottom}
+.charactersList .character
+span{font-size:14px}div.characterListRow{font-weight:bold;color:#000;cursor:pointer;background-color:#FDFDFD}div.characterListRow:nth-child(2n){background-color:#EEE}div.characterListRow:nth-child(2n+1){background-color:#FDFDFD}div.characterListRow:hover,
+div.collection div.collectionArea
+.characterListRow.highlight{background:none;background:-webkit-gradient(linear, left bottom, left top, color-stop(0.1, #339ecc), color-stop(0.62, #50bce6));background-image:-moz-linear-gradient(center bottom, #339ecc 10%, #50bce6 62%);*background-color:#339FCC;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#339ECC', endColorstr='#50BCE6',GradientType=0 );color:#FFF}div.characterListRow:hover
+.rowImg{border:1px
+solid #FC0}div.characterListRow img,
+div.characterListRow .rowLevel
+img{vertical-align:middle}div.characterListRow
+div{white-space:normal;display:inline-block;margin-left:2px;*display:inline;*zoom:1}div.characterListRow
+.rowImg{border:1px
+solid #111}div.characterListRow
+.rowName{text-align:center;width:150px;font-size:14px}div.characterListRow .rowPower,
+div.characterListRow
+.rowDmg{width:30px;padding:0
+2px;font-size:14px}div.characterListRow .rowPower span.sprite-icons,
+div.characterListRow .rowDmg span.sprite-icons{vertical-align:top}div.characterListRow
+.rowLevel{width:80px;padding-left:5px}div.characterListRow
+.rowAbility{width:140px;vertical-align:middle;font-size:11px;font-weight:normal;text-align:center;vertical-align:middle}div.characterListRow .rowAbility
+.ability_lock{white-space:nowrap;line-height:8px}div.characterListRow
+.power{width:150px;vertical-align:middle}div.characterListRow
+.rowClanImg{width:25px}div.characterListRow
+.rowRarity{width:32px}div.characterListRow
+.rowQuantity{width:36px;font-size:14px;text-align:center}div.characterListRow .rowXP .progress
+img{float:left;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px}div.characterListRow
+.rowCounter{font-size:10px;text-align:center}div.characterListRow
+.remove{cursor:pointer}#playerMenuPicture{position:absolute;top:28px;left:22px;width:42px;height:42px;border:1px
+solid black}#playerMenuPseudo{position:absolute;left:18px;text-align:center;font-size:1.2em;font-size:15px;font-weight:bold;width:141px}#playerMenuPseudo
+A{color:#FFF;display:block;line-height:1.5em}#playerMenuPseudo A:hover{color:#FFF}#playerMenuRank{position:absolute;top:27px;left:70px;text-transform:capitalize;font-size:12px;color:#CFCCCC}#playerMenuGuild{color:#D47A9D}#playerMenuGuild
+.grade{float:left;margin-right:2px}#playerMenuGuild
+A{color:#D47A9D}#playerMenuGuild A:hover{color:#D47A9D}#playerMenuCustomBG{position:absolute;top:141px;left:17px;width:156px;height:59px;text-align:right}#playerMenuCustomBG
+img{float:right;vertical-align:top;clear:right;margin:3px
+1px 0 0}img#playerMenuFairplay{margin:1px
+3px 0 0}#playerMenuMessage{position:absolute;top:5px;left:152px}#playerMenuMessageBubble{position:absolute;top:-16px;left:132px;text-align:center;color:#000;font-size:13px;font-weight:bold}#playerMenuMessageBubble
+A{color:#000}#playerMenuClintz{color:#FFC400}#playerMenuClintzPlus{position:absolute;top:101px;right:6px;font-size:11px;color:#FFC400}#playerMenuCredits{color:#CFCCCC}#playerMenuCreditsPlus{position:absolute;top:113px;right:6px;font-size:11px;color:#CFCCCC}#playerMenuSponsorship{position:absolute;top:124px;right:6px;font-size:11px}#playerMenuSponsorship
+A{color:#F55}#playerMenuStars{position:relative;left:5px;top:-11px}#playerMenuStars
+img{margin-right:1px}#homeMenuButton{position:absolute;top:200px;left:13px;border:0px;text-decoration:none}#playMenuButton{position:absolute;width:97px;height:28px;top:200px;left:46px;border:0px}#logoutMenuButton{position:absolute;top:200px;left:142px;border:0px;text-decoration:none}
+.roar-body{position:absolute;font:12px/14px "Lucida Grande",Arial,Helvetica,Verdana,sans-serif;color:#fff;text-align:left;z-index:999}
+.roar{position:absolute;width:300px;cursor:pointer}
+.roar-bg{position:absolute;z-index:1000;width:100%;height:100%;left:0;top:0;background-color:#000;background-color:#1E0000;border:2px
+solid black;-moz-border-radius:10px;-webkit-border-radius:5px;border-radius:5px;-webkit-box-shadow:0 0 5px rgba(0, 0, 0, 0.5);-moz-box-shadow:0 0 5px rgba(0, 0, 0, 0.5)}
+.roar-body-ugly
+.roar{background-color:#333}
+.roar-body-ugly .roar-bg{display:none}
+.roar
+h3{position:relative;padding:15px
+10px 0;margin:0;border:0;font-size:13px;color:#fff;z-index:1002}
+.roar
+div.roarContainer{position:relative;padding:10px
+10px 15px;margin:0;font-size:12px;color:#fff;z-index:1002}
+.sprite-ui{background:url(http://beta.urban-rivals.com/img/sprites/ui/ui.png?1319188528) no-repeat top left;display:inline-block}
+.sprite-ui.home-over{background-position:-0px -0px;width:35px;height:28px}
+.sprite-ui.home{background-position:-35px -0px;width:35px;height:28px}
+.sprite-ui.letter_nomessage{background-position:-70px -0px;width:15px;height:12px}
+.sprite-ui.logout-over{background-position:-0px -28px;width:35px;height:28px}
+.sprite-ui.logout{background-position:-35px -28px;width:35px;height:28px}
+.sprite-ui.menu{background-position:-70px -28px;width:177px;height:200px}
+.sprite-ui.mode-deathmatch_small{background-position:-0px -228px;width:84px;height:33px}
+.sprite-ui.mode-deathmatch_small_BW{background-position:-84px -228px;width:84px;height:33px}
+.sprite-ui.mode-elo_small{background-position:-168px -228px;width:84px;height:33px}
+.sprite-ui.mode-elo_small_BW{background-position:-0px -261px;width:84px;height:33px}
+.sprite-ui.mode-event_small{background-position:-84px -261px;width:84px;height:33px}
+.sprite-ui.mode-normal_small{background-position:-168px -261px;width:84px;height:33px}
+.sprite-ui.mode-survivor_small{background-position:-0px -294px;width:84px;height:33px}
+.sprite-ui.mode-survivor_small_BW{background-position:-84px -294px;width:84px;height:33px}
+.sprite-ui.mode-tourney_small{background-position:-168px -294px;width:84px;height:33px}
+.sprite-ui.mode-training_nopillz_small{background-position:-0px -327px;width:84px;height:33px}
+.sprite-ui.mode-training_small{background-position:-84px -327px;width:84px;height:33px}
+.sprite-ui.mode-tutorial_small{background-position:-168px -327px;width:84px;height:33px}
+.sprite-ui.popup{background-position:-0px -360px;width:25px;height:23px}
+.sprite-ui.progress-black{background-position:-25px -360px;width:800px;height:7px}
+.sprite-ui.progress-bright{background-position:-825px -360px;width:800px;height:7px}
+.sprite-ui.progress-orange{background-position:-0px -383px;width:800px;height:7px}
+.sprite-ui.rounded-left{background-position:-800px -383px;width:12px;height:26px}
+.sprite-ui.rounded-middle{background-position:-812px -383px;width:800px;height:26px}
+.sprite-ui.rounded-right{background-position:-0px -409px;width:13px;height:26px}
+.sprite-ui.smiley-bad{background-position:-13px -409px;width:18px;height:18px}
+.sprite-ui.smiley-gold{background-position:-31px -409px;width:18px;height:18px}
+.sprite-ui.smiley-good{background-position:-0px -435px;width:18px;height:18px}
+.sprite-ui.smiley-ok{background-position:-18px -435px;width:18px;height:18px}
+.sprite-ui.star{background-position:-36px -435px;width:11px;height:11px}
+.sprite-ui.star_off{background-position:-0px -453px;width:11px;height:11px}
+.sprite-ui.status-available-16{background-position:-11px -453px;width:16px;height:16px}
+.sprite-ui.status-available-8{background-position:-27px -453px;width:8px;height:8px}
+.sprite-ui.status-away-16{background-position:-0px -469px;width:16px;height:16px}
+.sprite-ui.status-away-8{background-position:-16px -469px;width:8px;height:8px}
+.sprite-ui.status-content-16{background-position:-24px -469px;width:16px;height:16px}
+.sprite-ui.status-content-8{background-position:-0px -485px;width:8px;height:8px}
+.sprite-ui.status-enteredtext-16{background-position:-8px -485px;width:16px;height:16px}
+.sprite-ui.status-enteredtext-8{background-position:-24px -485px;width:8px;height:8px}
+.sprite-ui.status-friend_offline-8{background-position:-0px -501px;width:10px;height:12px}
+.sprite-ui.status-friend_online-8{background-position:-10px -501px;width:10px;height:12px}
+.sprite-ui.status-idle-16{background-position:-20px -501px;width:16px;height:16px}
+.sprite-ui.status-idle-8{background-position:-0px -517px;width:8px;height:8px}
+.sprite-ui.status-invisible-16{background-position:-8px -517px;width:16px;height:16px}
+.sprite-ui.status-invisible-8{background-position:-24px -517px;width:8px;height:8px}
+.sprite-ui.status-mobile-16{background-position:-0px -533px;width:16px;height:16px}
+.sprite-ui.status-mobile-8{background-position:-16px -533px;width:8px;height:8px}
+.sprite-ui.status-offline-16{background-position:-24px -533px;width:16px;height:16px}
+.sprite-ui.status-offline-8{background-position:-0px -549px;width:8px;height:8px}
+.sprite-ui.status-status{background-position:-8px -549px;width:120px;height:48px}
+.sprite-ui.status-typing-16{background-position:-128px -549px;width:16px;height:16px}
+.sprite-ui.status-typing-8{background-position:-0px -597px;width:8px;height:8px}
+.sprite-ui.status-unknown-16{background-position:-8px -597px;width:16px;height:16px}
+.sprite-ui.status-unknown-8{background-position:-24px -597px;width:8px;height:8px}
+.sprite-ui.xp-center{background-position:-0px -613px;width:160px;height:9px}
+.sprite-ui.xp-left{background-position:-160px -613px;width:4px;height:9px}
+.sprite-ui.xp-right{background-position:-164px -613px;width:4px;height:9px}
+.sprite-icons{background:url(http://beta.urban-rivals.com/img/sprites/icons/icons.png?1354033872) no-repeat top left;display:inline-block}
+.sprite-icons.bbcode_img{background-position:-0px -0px;width:24px;height:24px}
+.sprite-icons.bbcode_url{background-position:-24px -0px;width:24px;height:24px}
+.sprite-icons.card-missing{background-position:-48px -0px;width:17px;height:15px}
+.sprite-icons.card-ok{background-position:-65px -0px;width:17px;height:15px}
+.sprite-icons.cart_elo{background-position:-82px -0px;width:99px;height:21px}
+.sprite-icons.check-12x11{background-position:-181px -0px;width:12px;height:11px}
+.sprite-icons.check_orange{background-position:-193px -0px;width:20px;height:21px}
+.sprite-icons.collec{background-position:-213px -0px;width:23px;height:22px}
+.sprite-icons.combat{background-position:-236px -0px;width:23px;height:22px}
+.sprite-icons.cross-12x11{background-position:-259px -0px;width:12px;height:11px}
+.sprite-icons.cross{background-position:-0px -24px;width:16px;height:16px}
+.sprite-icons.facebook{background-position:-16px -24px;width:14px;height:14px}
+.sprite-icons.fight{background-position:-30px -24px;width:11px;height:11px}
+.sprite-icons.format_type_1{background-position:-41px -24px;width:14px;height:14px}
+.sprite-icons.format_type_2{background-position:-55px -24px;width:14px;height:14px}
+.sprite-icons.format_type_socc{background-position:-69px -24px;width:16px;height:14px}
+.sprite-icons.friend{background-position:-85px -24px;width:16px;height:23px}
+.sprite-icons.guild{background-position:-101px -24px;width:21px;height:21px}
+.sprite-icons.icon_ascending{background-position:-122px -24px;width:22px;height:22px}
+.sprite-icons.icon_descending{background-position:-144px -24px;width:22px;height:22px}
+.sprite-icons.info{background-position:-0px -47px;width:32px;height:32px}
+.sprite-icons.ko-12x12{background-position:-32px -47px;width:12px;height:12px}
+.sprite-icons.market-10x10{background-position:-44px -47px;width:10px;height:10px}
+.sprite-icons.market{background-position:-54px -47px;width:21px;height:21px}
+.sprite-icons.market_arrow{background-position:-75px -47px;width:30px;height:31px}
+.sprite-icons.market_arrow_down{background-position:-105px -47px;width:30px;height:31px}
+.sprite-icons.market_arrow_up{background-position:-135px -47px;width:30px;height:31px}
+.sprite-icons.mindeg{background-position:-165px -47px;width:11px;height:11px}
+.sprite-icons.mini-rankdown{background-position:-176px -47px;width:12px;height:12px}
+.sprite-icons.mini-ranknew{background-position:-188px -47px;width:12px;height:12px}
+.sprite-icons.mini-rankstill{background-position:-0px -79px;width:12px;height:12px}
+.sprite-icons.mini-rankup{background-position:-12px -79px;width:12px;height:12px}
+.sprite-icons.minpow{background-position:-24px -79px;width:11px;height:11px}
+.sprite-icons.mission{background-position:-35px -79px;width:23px;height:22px}
+.sprite-icons.mode_deathmatch{background-position:-58px -79px;width:29px;height:27px}
+.sprite-icons.mode_elo{background-position:-87px -79px;width:28px;height:17px}
+.sprite-icons.mode_survivor_elo{background-position:-115px -79px;width:31px;height:19px}
+.sprite-icons.mode_survivor_type1{background-position:-146px -79px;width:30px;height:19px}
+.sprite-icons.mode_survivor_type2{background-position:-176px -79px;width:30px;height:19px}
+.sprite-icons.mode_tourney{background-position:-206px -79px;width:27px;height:20px}
+.sprite-icons.mutual_friend{background-position:-0px -106px;width:16px;height:23px}
+.sprite-icons.mutualfriend{background-position:-16px -106px;width:21px;height:14px}
+.sprite-icons.myfriends{background-position:-37px -106px;width:34px;height:23px}
+.sprite-icons.myguild{background-position:-71px -106px;width:23px;height:22px}
+.sprite-icons.new_cards{background-position:-94px -106px;width:17px;height:15px}
+.sprite-icons.noelo{background-position:-111px -106px;width:21px;height:13px}
+.sprite-icons.options{background-position:-132px -106px;width:21px;height:21px}
+.sprite-icons.persos{background-position:-153px -106px;width:23px;height:22px}
+.sprite-icons.pillz-vertical{background-position:-176px -106px;width:8px;height:18px}
+.sprite-icons.pillz{background-position:-184px -106px;width:19px;height:9px}
+.sprite-icons.player{background-position:-0px -129px;width:21px;height:21px}
+.sprite-icons.playersecure{background-position:-21px -129px;width:32px;height:32px}
+.sprite-icons.playerunsecure{background-position:-53px -129px;width:32px;height:32px}
+.sprite-icons.rankdown{background-position:-85px -129px;width:21px;height:21px}
+.sprite-icons.ranknew{background-position:-106px -129px;width:21px;height:21px}
+.sprite-icons.rankstill{background-position:-127px -129px;width:21px;height:21px}
+.sprite-icons.rankup{background-position:-148px -129px;width:21px;height:21px}
+.sprite-icons.rarity_c{background-position:-169px -129px;width:21px;height:21px}
+.sprite-icons.rarity_cr{background-position:-190px -129px;width:21px;height:21px}
+.sprite-icons.rarity_l{background-position:-211px -129px;width:21px;height:21px}
+.sprite-icons.rarity_r{background-position:-0px -161px;width:21px;height:21px}
+.sprite-icons.rarity_u{background-position:-21px -161px;width:21px;height:21px}
+.sprite-icons.removefriend{background-position:-42px -161px;width:21px;height:21px}
+.sprite-icons.repeat{background-position:-63px -161px;width:26px;height:26px}
+.sprite-icons.social-facebook-12x12{background-position:-89px -161px;width:12px;height:12px}
+.sprite-icons.social-feed-12x12{background-position:-101px -161px;width:12px;height:12px}
+.sprite-icons.social-tool-12x12{background-position:-113px -161px;width:12px;height:12px}
+.sprite-icons.social-twitter-12x12{background-position:-125px -161px;width:12px;height:12px}
+.sprite-icons.speaker{background-position:-137px -161px;width:26px;height:26px}
+.sprite-icons.speaker_mute{background-position:-163px -161px;width:26px;height:26px}
+.sprite-icons.star_evo{background-position:-0px -187px;width:11px;height:11px}
+.sprite-icons.star_evolved{background-position:-11px -187px;width:11px;height:11px}
+.sprite-icons.stats-ability-10x10{background-position:-22px -187px;width:10px;height:10px}
+.sprite-icons.stats-ability-12x12{background-position:-32px -187px;width:12px;height:12px}
+.sprite-icons.stats-ability-16x16{background-position:-44px -187px;width:16px;height:16px}
+.sprite-icons.stats-ability-18x18{background-position:-60px -187px;width:18px;height:18px}
+.sprite-icons.stats-ability-20x20{background-position:-78px -187px;width:20px;height:20px}
+.sprite-icons.stats-ability-24x24{background-position:-98px -187px;width:24px;height:24px}
+.sprite-icons.stats-ability-32x32{background-position:-122px -187px;width:32px;height:32px}
+.sprite-icons.stats-ability-48x48{background-position:-154px -187px;width:48px;height:48px}
+.sprite-icons.stats-ability-bonus-16x16{background-position:-0px -235px;width:16px;height:16px}
+.sprite-icons.stats-attack-10x10{background-position:-16px -235px;width:10px;height:10px}
+.sprite-icons.stats-attack-12x12{background-position:-26px -235px;width:12px;height:12px}
+.sprite-icons.stats-attack-16x16{background-position:-38px -235px;width:16px;height:16px}
+.sprite-icons.stats-attack-18x18{background-position:-54px -235px;width:18px;height:18px}
+.sprite-icons.stats-attack-20x20{background-position:-72px -235px;width:20px;height:20px}
+.sprite-icons.stats-attack-24x24{background-position:-92px -235px;width:24px;height:24px}
+.sprite-icons.stats-attack-32x32{background-position:-116px -235px;width:32px;height:32px}
+.sprite-icons.stats-attack-48x48{background-position:-148px -235px;width:48px;height:48px}
+.sprite-icons.stats-bonus-10x10{background-position:-196px -235px;width:10px;height:10px}
+.sprite-icons.stats-bonus-12x12{background-position:-0px -283px;width:12px;height:12px}
+.sprite-icons.stats-bonus-16x16{background-position:-12px -283px;width:16px;height:16px}
+.sprite-icons.stats-bonus-18x18{background-position:-28px -283px;width:18px;height:18px}
+.sprite-icons.stats-bonus-20x20{background-position:-46px -283px;width:20px;height:20px}
+.sprite-icons.stats-bonus-24x24{background-position:-66px -283px;width:24px;height:24px}
+.sprite-icons.stats-bonus-32x32{background-position:-90px -283px;width:32px;height:32px}
+.sprite-icons.stats-bonus-48x48{background-position:-122px -283px;width:48px;height:48px}
+.sprite-icons.stats-damage-10x10{background-position:-170px -283px;width:10px;height:10px}
+.sprite-icons.stats-damage-12x12{background-position:-180px -283px;width:12px;height:12px}
+.sprite-icons.stats-damage-16x16{background-position:-192px -283px;width:16px;height:16px}
+.sprite-icons.stats-damage-18x18{background-position:-0px -331px;width:18px;height:18px}
+.sprite-icons.stats-damage-20x20{background-position:-18px -331px;width:20px;height:20px}
+.sprite-icons.stats-damage-24x24{background-position:-38px -331px;width:24px;height:24px}
+.sprite-icons.stats-damage-32x32{background-position:-62px -331px;width:32px;height:32px}
+.sprite-icons.stats-damage-48x48{background-position:-94px -331px;width:48px;height:48px}
+.sprite-icons.stats-power-10x10{background-position:-142px -331px;width:10px;height:10px}
+.sprite-icons.stats-power-12x12{background-position:-152px -331px;width:12px;height:12px}
+.sprite-icons.stats-power-16x16{background-position:-164px -331px;width:16px;height:16px}
+.sprite-icons.stats-power-18x18{background-position:-180px -331px;width:18px;height:18px}
+.sprite-icons.stats-power-20x20{background-position:-198px -331px;width:20px;height:20px}
+.sprite-icons.stats-power-24x24{background-position:-0px -379px;width:24px;height:24px}
+.sprite-icons.stats-power-32x32{background-position:-24px -379px;width:32px;height:32px}
+.sprite-icons.stats-power-48x48{background-position:-56px -379px;width:48px;height:48px}
+.sprite-icons.thumbs_down-16x16{background-position:-104px -379px;width:16px;height:16px}
+.sprite-icons.thumbs_down-24x24{background-position:-120px -379px;width:24px;height:24px}
+.sprite-icons.thumbs_down-32x32{background-position:-144px -379px;width:32px;height:32px}
+.sprite-icons.thumbs_down{background-position:-176px -379px;width:16px;height:16px}
+.sprite-icons.thumbs_up-16x16{background-position:-192px -379px;width:16px;height:16px}
+.sprite-icons.thumbs_up-24x24{background-position:-208px -379px;width:24px;height:24px}
+.sprite-icons.thumbs_up-32x32{background-position:-232px -379px;width:32px;height:32px}
+.sprite-icons.thumbs_up{background-position:-0px -427px;width:16px;height:16px}
+.sprite-icons.twitter{background-position:-16px -427px;width:16px;height:16px}
+.sprite-icons.victoire{background-position:-32px -427px;width:23px;height:22px}
+.sprite-icons.world{background-position:-55px -427px;width:12px;height:12px}
+.sprite-icons.xp-32x32{background-position:-67px -427px;width:31px;height:17px}
+.sprite-cards{background:url(http://beta.urban-rivals.com/img/sprites/cards/cards.png?1300714330) no-repeat top left;display:inline-block}
+.sprite-cards.bg_c{background-position:-0px -0px;width:157px;height:219px}
+.sprite-cards.bg_l{background-position:-157px -0px;width:157px;height:219px}
+.sprite-cards.bg_r{background-position:-314px -0px;width:157px;height:219px}
+.sprite-cards.bg_u{background-position:-471px -0px;width:157px;height:219px}
+.sprite-cards.card_sticker_green{background-position:-628px -0px;width:39px;height:39px}
+.sprite-cards.card_sticker_red{background-position:-667px -0px;width:39px;height:39px}
+.sprite-cards.clanmask{background-position:-706px -0px;width:32px;height:37px}
+.sprite-cards.clintz_left{background-position:-738px -0px;width:7px;height:14px}
+.sprite-cards.clintz_middle{background-position:-745px -0px;width:160px;height:14px}
+.sprite-cards.clintz_right{background-position:-905px -0px;width:7px;height:14px}
+.sprite-cards.lvl2_1{background-position:-0px -219px;width:120px;height:17px}
+.sprite-cards.lvl2{background-position:-120px -219px;width:120px;height:17px}
+.sprite-cards.lvl3_1{background-position:-240px -219px;width:120px;height:17px}
+.sprite-cards.lvl3_2{background-position:-360px -219px;width:120px;height:17px}
+.sprite-cards.lvl3{background-position:-480px -219px;width:120px;height:17px}
+.sprite-cards.lvl4_1{background-position:-600px -219px;width:120px;height:17px}
+.sprite-cards.lvl4_2{background-position:-720px -219px;width:120px;height:17px}
+.sprite-cards.lvl4_3{background-position:-840px -219px;width:120px;height:17px}
+.sprite-cards.lvl4{background-position:-960px -219px;width:120px;height:17px}
+.sprite-cards.lvl5_1{background-position:-1080px -219px;width:120px;height:17px}
+.sprite-cards.lvl5_2{background-position:-0px -236px;width:120px;height:17px}
+.sprite-cards.lvl5_3{background-position:-120px -236px;width:120px;height:17px}
+.sprite-cards.lvl5_4{background-position:-240px -236px;width:120px;height:17px}
+.sprite-cards.lvl5{background-position:-360px -236px;width:120px;height:17px}
+.sprite-cards.ministar-1_0{background-position:-480px -236px;width:10px;height:8px}
+.sprite-cards.ministar-1{background-position:-490px -236px;width:10px;height:8px}
+.sprite-cards.ministar-2_0{background-position:-500px -236px;width:20px;height:8px}
+.sprite-cards.ministar-2_1{background-position:-520px -236px;width:20px;height:8px}
+.sprite-cards.ministar-2{background-position:-540px -236px;width:20px;height:8px}
+.sprite-cards.ministar-3_0{background-position:-560px -236px;width:30px;height:8px}
+.sprite-cards.ministar-3_1{background-position:-0px -253px;width:30px;height:8px}
+.sprite-cards.ministar-3_2{background-position:-30px -253px;width:30px;height:8px}
+.sprite-cards.ministar-3{background-position:-60px -253px;width:30px;height:8px}
+.sprite-cards.ministar-4_0{background-position:-90px -253px;width:40px;height:8px}
+.sprite-cards.ministar-4_1{background-position:-130px -253px;width:40px;height:8px}
+.sprite-cards.ministar-4_2{background-position:-170px -253px;width:40px;height:8px}
+.sprite-cards.ministar-4_3{background-position:-210px -253px;width:40px;height:8px}
+.sprite-cards.ministar-4{background-position:-250px -253px;width:40px;height:8px}
+.sprite-cards.ministar-5_0{background-position:-290px -253px;width:50px;height:8px}
+.sprite-cards.ministar-5_1{background-position:-340px -253px;width:50px;height:8px}
+.sprite-cards.ministar-5_2{background-position:-0px -261px;width:50px;height:8px}
+.sprite-cards.ministar-5_3{background-position:-50px -261px;width:50px;height:8px}
+.sprite-cards.ministar-5_4{background-position:-100px -261px;width:50px;height:8px}
+.sprite-cards.ministar-5{background-position:-150px -261px;width:50px;height:8px}
+.sprite-cards.small-bg_c{background-position:-200px -261px;width:217px;height:42px}
+.sprite-cards.small-bg_l{background-position:-417px -261px;width:217px;height:42px}
+.sprite-cards.small-bg_r{background-position:-634px -261px;width:217px;height:42px}
+.sprite-cards.small-bg_u{background-position:-851px -261px;width:217px;height:42px}
+.sprite-cards.small-bonus_off{background-position:-1068px -261px;width:16px;height:16px}
+.sprite-cards.small-bonus_on{background-position:-1084px -261px;width:16px;height:16px}
+.sprite-cards.small-mask{background-position:-0px -303px;width:69px;height:10px}
+.sprite-cards.small-power_off{background-position:-69px -303px;width:16px;height:16px}
+.sprite-cards.small-power_on{background-position:-85px -303px;width:16px;height:16px}
+.sprite-cards.small-xp_01{background-position:-101px -303px;width:69px;height:10px}
+.sprite-cards.small-xp_02{background-position:-170px -303px;width:69px;height:10px}
+.sprite-cards.star-1_0{background-position:-239px -303px;width:11px;height:11px}
+.sprite-cards.star-1_1{background-position:-250px -303px;width:11px;height:11px}
+.sprite-cards.star-2_0{background-position:-261px -303px;width:24px;height:11px}
+.sprite-cards.star-2_1{background-position:-285px -303px;width:24px;height:11px}
+.sprite-cards.star-2_2{background-position:-309px -303px;width:24px;height:11px}
+.sprite-cards.star-3_0{background-position:-0px -319px;width:37px;height:11px}
+.sprite-cards.star-3_1{background-position:-37px -319px;width:37px;height:11px}
+.sprite-cards.star-3_2{background-position:-74px -319px;width:37px;height:11px}
+.sprite-cards.star-3_3{background-position:-111px -319px;width:37px;height:11px}
+.sprite-cards.star-4_0{background-position:-148px -319px;width:50px;height:11px}
+.sprite-cards.star-4_1{background-position:-198px -319px;width:50px;height:11px}
+.sprite-cards.star-4_2{background-position:-248px -319px;width:50px;height:11px}
+.sprite-cards.star-4_3{background-position:-298px -319px;width:50px;height:11px}
+.sprite-cards.star-4_4{background-position:-348px -319px;width:50px;height:11px}
+.sprite-cards.star-5_0{background-position:-398px -319px;width:63px;height:11px}
+.sprite-cards.star-5_1{background-position:-0px -330px;width:63px;height:11px}
+.sprite-cards.star-5_2{background-position:-63px -330px;width:63px;height:11px}
+.sprite-cards.star-5_3{background-position:-126px -330px;width:63px;height:11px}
+.sprite-cards.star-5_4{background-position:-189px -330px;width:63px;height:11px}
+.sprite-cards.star-5_5{background-position:-252px -330px;width:63px;height:11px}
+.sprite-cards.xpbar{background-position:-315px -330px;width:160px;height:8px}
+.sprite-cards.xp{background-position:-475px -330px;width:116px;height:10px}
+.sprite-clans{background:url(http://beta.urban-rivals.com/img/sprites/clans/clans.png?1366365374) no-repeat top left;display:inline-block}
+.sprite-clans.ALLSTARS_128{background-position:-0px -0px;width:17px;height:15px}
+.sprite-clans.ALLSTARS_128_BW{background-position:-17px -0px;width:17px;height:15px}
+.sprite-clans.ALLSTARS_160{background-position:-34px -0px;width:17px;height:15px}
+.sprite-clans.ALLSTARS_160_BW{background-position:-51px -0px;width:17px;height:15px}
+.sprite-clans.ALLSTARS_240{background-position:-68px -0px;width:34px;height:30px}
+.sprite-clans.ALLSTARS_240_BW{background-position:-102px -0px;width:34px;height:30px}
+.sprite-clans.BANGERS_128{background-position:-136px -0px;width:17px;height:15px}
+.sprite-clans.BANGERS_128_BW{background-position:-153px -0px;width:17px;height:15px}
+.sprite-clans.BANGERS_160{background-position:-170px -0px;width:17px;height:15px}
+.sprite-clans.BANGERS_160_BW{background-position:-187px -0px;width:17px;height:15px}
+.sprite-clans.BANGERS_240{background-position:-0px -30px;width:34px;height:30px}
+.sprite-clans.BANGERS_240_BW{background-position:-34px -30px;width:34px;height:30px}
+.sprite-clans.BERZERK_128{background-position:-68px -30px;width:17px;height:15px}
+.sprite-clans.BERZERK_128_BW{background-position:-85px -30px;width:17px;height:15px}
+.sprite-clans.BERZERK_160{background-position:-102px -30px;width:17px;height:15px}
+.sprite-clans.BERZERK_160_BW{background-position:-119px -30px;width:17px;height:15px}
+.sprite-clans.BERZERK_240{background-position:-136px -30px;width:34px;height:30px}
+.sprite-clans.BERZERK_240_BW{background-position:-170px -30px;width:34px;height:30px}
+.sprite-clans.FANGPICLANG_128{background-position:-204px -30px;width:17px;height:15px}
+.sprite-clans.FANGPICLANG_128_BW{background-position:-221px -30px;width:17px;height:15px}
+.sprite-clans.FANGPICLANG_160{background-position:-0px -60px;width:17px;height:15px}
+.sprite-clans.FANGPICLANG_160_BW{background-position:-17px -60px;width:17px;height:15px}
+.sprite-clans.FANGPICLANG_240{background-position:-34px -60px;width:34px;height:30px}
+.sprite-clans.FANGPICLANG_240_BW{background-position:-68px -60px;width:34px;height:30px}
+.sprite-clans.FREAKS_128{background-position:-102px -60px;width:17px;height:15px}
+.sprite-clans.FREAKS_128_BW{background-position:-119px -60px;width:17px;height:15px}
+.sprite-clans.FREAKS_160{background-position:-136px -60px;width:17px;height:15px}
+.sprite-clans.FREAKS_160_BW{background-position:-153px -60px;width:17px;height:15px}
+.sprite-clans.FREAKS_240{background-position:-170px -60px;width:34px;height:30px}
+.sprite-clans.FREAKS_240_BW{background-position:-204px -60px;width:34px;height:30px}
+.sprite-clans.FROZN_128{background-position:-0px -90px;width:17px;height:15px}
+.sprite-clans.FROZN_128_BW{background-position:-17px -90px;width:17px;height:15px}
+.sprite-clans.FROZN_160{background-position:-34px -90px;width:17px;height:15px}
+.sprite-clans.FROZN_160_BW{background-position:-51px -90px;width:17px;height:15px}
+.sprite-clans.FROZN_240{background-position:-68px -90px;width:34px;height:30px}
+.sprite-clans.FROZN_240_BW{background-position:-102px -90px;width:34px;height:30px}
+.sprite-clans.GHEIST_128{background-position:-136px -90px;width:17px;height:15px}
+.sprite-clans.GHEIST_128_BW{background-position:-153px -90px;width:17px;height:15px}
+.sprite-clans.GHEIST_160{background-position:-170px -90px;width:17px;height:15px}
+.sprite-clans.GHEIST_160_BW{background-position:-187px -90px;width:17px;height:15px}
+.sprite-clans.GHEIST_240{background-position:-0px -120px;width:34px;height:30px}
+.sprite-clans.GHEIST_240_BW{background-position:-34px -120px;width:34px;height:30px}
+.sprite-clans.HURACAN_128{background-position:-68px -120px;width:17px;height:15px}
+.sprite-clans.HURACAN_128_BW{background-position:-85px -120px;width:17px;height:15px}
+.sprite-clans.HURACAN_160{background-position:-102px -120px;width:17px;height:15px}
+.sprite-clans.HURACAN_160_BW{background-position:-119px -120px;width:17px;height:15px}
+.sprite-clans.HURACAN_240{background-position:-136px -120px;width:34px;height:30px}
+.sprite-clans.HURACAN_240_BW{background-position:-170px -120px;width:34px;height:30px}
+.sprite-clans.JUNGO_128{background-position:-204px -120px;width:17px;height:15px}
+.sprite-clans.JUNGO_128_BW{background-position:-221px -120px;width:17px;height:15px}
+.sprite-clans.JUNGO_160{background-position:-0px -150px;width:17px;height:15px}
+.sprite-clans.JUNGO_160_BW{background-position:-17px -150px;width:17px;height:15px}
+.sprite-clans.JUNGO_240{background-position:-34px -150px;width:34px;height:30px}
+.sprite-clans.JUNGO_240_BW{background-position:-68px -150px;width:34px;height:30px}
+.sprite-clans.JUNKZ_128{background-position:-102px -150px;width:17px;height:15px}
+.sprite-clans.JUNKZ_128_BW{background-position:-119px -150px;width:17px;height:15px}
+.sprite-clans.JUNKZ_160{background-position:-136px -150px;width:17px;height:15px}
+.sprite-clans.JUNKZ_160_BW{background-position:-153px -150px;width:17px;height:15px}
+.sprite-clans.JUNKZ_240{background-position:-170px -150px;width:34px;height:30px}
+.sprite-clans.JUNKZ_240_BW{background-position:-204px -150px;width:34px;height:30px}
+.sprite-clans.LAJUNTA_128{background-position:-0px -180px;width:17px;height:15px}
+.sprite-clans.LAJUNTA_128_BW{background-position:-17px -180px;width:17px;height:15px}
+.sprite-clans.LAJUNTA_160{background-position:-34px -180px;width:17px;height:15px}
+.sprite-clans.LAJUNTA_160_BW{background-position:-51px -180px;width:17px;height:15px}
+.sprite-clans.LAJUNTA_240{background-position:-68px -180px;width:34px;height:30px}
+.sprite-clans.LAJUNTA_240_BW{background-position:-102px -180px;width:34px;height:30px}
+.sprite-clans.LEADER_128{background-position:-136px -180px;width:17px;height:15px}
+.sprite-clans.LEADER_128_BW{background-position:-153px -180px;width:17px;height:15px}
+.sprite-clans.LEADER_160{background-position:-170px -180px;width:17px;height:15px}
+.sprite-clans.LEADER_160_BW{background-position:-187px -180px;width:17px;height:15px}
+.sprite-clans.LEADER_240{background-position:-0px -210px;width:34px;height:30px}
+.sprite-clans.LEADER_240_BW{background-position:-34px -210px;width:34px;height:30px}
+.sprite-clans.MONTANA_128{background-position:-68px -210px;width:17px;height:15px}
+.sprite-clans.MONTANA_128_BW{background-position:-85px -210px;width:17px;height:15px}
+.sprite-clans.MONTANA_160{background-position:-102px -210px;width:17px;height:15px}
+.sprite-clans.MONTANA_160_BW{background-position:-119px -210px;width:17px;height:15px}
+.sprite-clans.MONTANA_240{background-position:-136px -210px;width:34px;height:30px}
+.sprite-clans.MONTANA_240_BW{background-position:-170px -210px;width:34px;height:30px}
+.sprite-clans.NIGHTMARE_128{background-position:-204px -210px;width:17px;height:15px}
+.sprite-clans.NIGHTMARE_128_BW{background-position:-221px -210px;width:17px;height:15px}
+.sprite-clans.NIGHTMARE_160{background-position:-0px -240px;width:17px;height:15px}
+.sprite-clans.NIGHTMARE_160_BW{background-position:-17px -240px;width:17px;height:15px}
+.sprite-clans.NIGHTMARE_240{background-position:-34px -240px;width:34px;height:30px}
+.sprite-clans.NIGHTMARE_240_BW{background-position:-68px -240px;width:34px;height:30px}
+.sprite-clans.PIRANAS_128{background-position:-102px -240px;width:17px;height:15px}
+.sprite-clans.PIRANAS_128_BW{background-position:-119px -240px;width:17px;height:15px}
+.sprite-clans.PIRANAS_160{background-position:-136px -240px;width:17px;height:15px}
+.sprite-clans.PIRANAS_160_BW{background-position:-153px -240px;width:17px;height:15px}
+.sprite-clans.PIRANAS_240{background-position:-170px -240px;width:34px;height:30px}
+.sprite-clans.PIRANAS_240_BW{background-position:-204px -240px;width:34px;height:30px}
+.sprite-clans.PUSSYCATS_128{background-position:-0px -270px;width:17px;height:15px}
+.sprite-clans.PUSSYCATS_128_BW{background-position:-17px -270px;width:17px;height:15px}
+.sprite-clans.PUSSYCATS_160{background-position:-34px -270px;width:17px;height:15px}
+.sprite-clans.PUSSYCATS_160_BW{background-position:-51px -270px;width:17px;height:15px}
+.sprite-clans.PUSSYCATS_240{background-position:-68px -270px;width:34px;height:30px}
+.sprite-clans.PUSSYCATS_240_BW{background-position:-102px -270px;width:34px;height:30px}
+.sprite-clans.RESCUE_128{background-position:-136px -270px;width:17px;height:15px}
+.sprite-clans.RESCUE_128_BW{background-position:-153px -270px;width:17px;height:15px}
+.sprite-clans.RESCUE_160{background-position:-170px -270px;width:17px;height:15px}
+.sprite-clans.RESCUE_160_BW{background-position:-187px -270px;width:17px;height:15px}
+.sprite-clans.RESCUE_240{background-position:-0px -300px;width:34px;height:30px}
+.sprite-clans.RESCUE_240_BW{background-position:-34px -300px;width:34px;height:30px}
+.sprite-clans.ROOTS_128{background-position:-68px -300px;width:17px;height:15px}
+.sprite-clans.ROOTS_128_BW{background-position:-85px -300px;width:17px;height:15px}
+.sprite-clans.ROOTS_160{background-position:-102px -300px;width:17px;height:15px}
+.sprite-clans.ROOTS_160_BW{background-position:-119px -300px;width:17px;height:15px}
+.sprite-clans.ROOTS_240{background-position:-136px -300px;width:34px;height:30px}
+.sprite-clans.ROOTS_240_BW{background-position:-170px -300px;width:34px;height:30px}
+.sprite-clans.SAKROHM_128{background-position:-204px -300px;width:17px;height:15px}
+.sprite-clans.SAKROHM_128_BW{background-position:-221px -300px;width:17px;height:15px}
+.sprite-clans.SAKROHM_160{background-position:-0px -330px;width:17px;height:15px}
+.sprite-clans.SAKROHM_160_BW{background-position:-17px -330px;width:17px;height:15px}
+.sprite-clans.SAKROHM_240{background-position:-34px -330px;width:34px;height:30px}
+.sprite-clans.SAKROHM_240_BW{background-position:-68px -330px;width:34px;height:30px}
+.sprite-clans.SENTINEL_128{background-position:-102px -330px;width:17px;height:15px}
+.sprite-clans.SENTINEL_128_BW{background-position:-119px -330px;width:17px;height:15px}
+.sprite-clans.SENTINEL_160{background-position:-136px -330px;width:17px;height:15px}
+.sprite-clans.SENTINEL_160_BW{background-position:-153px -330px;width:17px;height:15px}
+.sprite-clans.SENTINEL_240{background-position:-170px -330px;width:34px;height:30px}
+.sprite-clans.SENTINEL_240_BW{background-position:-204px -330px;width:34px;height:30px}
+.sprite-clans.SKEELZ_128{background-position:-0px -360px;width:17px;height:15px}
+.sprite-clans.SKEELZ_128_BW{background-position:-17px -360px;width:17px;height:15px}
+.sprite-clans.SKEELZ_160{background-position:-34px -360px;width:17px;height:15px}
+.sprite-clans.SKEELZ_160_BW{background-position:-51px -360px;width:17px;height:15px}
+.sprite-clans.SKEELZ_240{background-position:-68px -360px;width:34px;height:30px}
+.sprite-clans.SKEELZ_240_BW{background-position:-102px -360px;width:34px;height:30px}
+.sprite-clans.ULUWATU_128{background-position:-136px -360px;width:17px;height:15px}
+.sprite-clans.ULUWATU_128_BW{background-position:-153px -360px;width:17px;height:15px}
+.sprite-clans.ULUWATU_160{background-position:-170px -360px;width:17px;height:15px}
+.sprite-clans.ULUWATU_160_BW{background-position:-187px -360px;width:17px;height:15px}
+.sprite-clans.ULUWATU_240{background-position:-0px -390px;width:34px;height:30px}
+.sprite-clans.ULUWATU_240_BW{background-position:-34px -390px;width:34px;height:30px}
+.sprite-clans.UPPERS_128{background-position:-68px -390px;width:17px;height:15px}
+.sprite-clans.UPPERS_128_BW{background-position:-85px -390px;width:17px;height:15px}
+.sprite-clans.UPPERS_160{background-position:-102px -390px;width:17px;height:15px}
+.sprite-clans.UPPERS_160_BW{background-position:-119px -390px;width:17px;height:15px}
+.sprite-clans.UPPERS_240{background-position:-136px -390px;width:34px;height:30px}
+.sprite-clans.UPPERS_240_BW{background-position:-170px -390px;width:34px;height:30px}
+.sprite-clans.VORTEX_128{background-position:-204px -390px;width:17px;height:15px}
+.sprite-clans.VORTEX_128_BW{background-position:-221px -390px;width:17px;height:15px}
+.sprite-clans.VORTEX_160{background-position:-0px -420px;width:17px;height:15px}
+.sprite-clans.VORTEX_160_BW{background-position:-17px -420px;width:17px;height:15px}
+.sprite-clans.VORTEX_240{background-position:-34px -420px;width:34px;height:30px}
+.sprite-clans.VORTEX_240_BW{background-position:-68px -420px;width:34px;height:30px}
+.sprite-missions{background:url(http://beta.urban-rivals.com/img/sprites/missions/missions.png?1371807209) no-repeat top left;display:inline-block}
+.sprite-missions.categ-ambre{background-position:-0px -0px;width:38px;height:38px}
+.sprite-missions.categ-ashigaru{background-position:-38px -0px;width:38px;height:38px}
+.sprite-missions.categ-bridget{background-position:-76px -0px;width:38px;height:38px}
+.sprite-missions.categ-eklore{background-position:-114px -0px;width:38px;height:38px}
+.sprite-missions.categ-erik{background-position:-152px -0px;width:38px;height:38px}
+.sprite-missions.categ-futoshi{background-position:-190px -0px;width:38px;height:38px}
+.sprite-missions.categ-gdkdo{background-position:-228px -0px;width:35px;height:34px}
+.sprite-missions.categ-hugo{background-position:-263px -0px;width:38px;height:38px}
+.sprite-missions.categ-ldandy{background-position:-301px -0px;width:38px;height:38px}
+.sprite-missions.categ-ldbella{background-position:-339px -0px;width:38px;height:38px}
+.sprite-missions.categ-ldbikinijoe{background-position:-0px -38px;width:38px;height:38px}
+.sprite-missions.categ-ldbonnie{background-position:-38px -38px;width:38px;height:38px}
+.sprite-missions.categ-lddobbs{background-position:-76px -38px;width:38px;height:38px}
+.sprite-missions.categ-lddudley{background-position:-114px -38px;width:38px;height:38px}
+.sprite-missions.categ-ldfhtagn{background-position:-152px -38px;width:38px;height:38px}
+.sprite-missions.categ-ldfutoshi{background-position:-190px -38px;width:38px;height:38px}
+.sprite-missions.categ-ldgail{background-position:-228px -38px;width:38px;height:38px}
+.sprite-missions.categ-ldharrow{background-position:-266px -38px;width:38px;height:38px}
+.sprite-missions.categ-ldhopper{background-position:-304px -38px;width:38px;height:38px}
+.sprite-missions.categ-ldjaxx{background-position:-342px -38px;width:38px;height:38px}
+.sprite-missions.categ-ldkrazan{background-position:-0px -76px;width:38px;height:38px}
+.sprite-missions.categ-ldkreenk{background-position:-38px -76px;width:38px;height:38px}
+.sprite-missions.categ-ldlianah{background-position:-76px -76px;width:38px;height:38px}
+.sprite-missions.categ-ldlois{background-position:-114px -76px;width:38px;height:38px}
+.sprite-missions.categ-ldmagistrado{background-position:-152px -76px;width:38px;height:38px}
+.sprite-missions.categ-ldnaja{background-position:-190px -76px;width:38px;height:38px}
+.sprite-missions.categ-ldscott{background-position:-228px -76px;width:38px;height:38px}
+.sprite-missions.categ-ldsylvia{background-position:-266px -76px;width:38px;height:38px}
+.sprite-missions.categ-ldtiwi{background-position:-304px -76px;width:38px;height:38px}
+.sprite-missions.categ-ldtravis{background-position:-342px -76px;width:38px;height:38px}
+.sprite-missions.categ-ldvalentina{background-position:-0px -114px;width:38px;height:38px}
+.sprite-missions.categ-morphun{background-position:-38px -114px;width:38px;height:38px}
+.sprite-missions.categ-moyenkdo{background-position:-76px -114px;width:29px;height:27px}
+.sprite-missions.categ-ptitkdo{background-position:-105px -114px;width:34px;height:22px}
+.sprite-missions.categ-timber{background-position:-139px -114px;width:38px;height:38px}
+.sprite-missions.categ-vansaar{background-position:-177px -114px;width:38px;height:38px}
+.sprite-missions.categ-vholt{background-position:-215px -114px;width:38px;height:38px}
+.sprite-missions.completed{background-position:-253px -114px;width:31px;height:29px}
+.sprite-missions.fond_encart_black{background-position:-284px -114px;width:433px;height:74px}
+.sprite-missions.fond_encart_purple{background-position:-717px -114px;width:434px;height:75px}
+.sprite-missions.icons-allstar{background-position:-0px -189px;width:59px;height:59px}
+.sprite-missions.icons-bangers{background-position:-59px -189px;width:59px;height:59px}
+.sprite-missions.icons-berzerk{background-position:-118px -189px;width:59px;height:59px}
+.sprite-missions.icons-cachee{background-position:-177px -189px;width:59px;height:59px}
+.sprite-missions.icons-clintz{background-position:-236px -189px;width:59px;height:59px}
+.sprite-missions.icons-collection{background-position:-295px -189px;width:59px;height:59px}
+.sprite-missions.icons-combat{background-position:-354px -189px;width:59px;height:59px}
+.sprite-missions.icons-credit{background-position:-413px -189px;width:59px;height:59px}
+.sprite-missions.icons-deathmatch{background-position:-472px -189px;width:59px;height:59px}
+.sprite-missions.icons-degats{background-position:-531px -189px;width:59px;height:59px}
+.sprite-missions.icons-elo{background-position:-0px -248px;width:59px;height:59px}
+.sprite-missions.icons-evolution{background-position:-59px -248px;width:59px;height:59px}
+.sprite-missions.icons-evolution_max{background-position:-118px -248px;width:59px;height:59px}
+.sprite-missions.icons-fangpiclang{background-position:-177px -248px;width:59px;height:59px}
+.sprite-missions.icons-freaks{background-position:-236px -248px;width:59px;height:59px}
+.sprite-missions.icons-frozn{background-position:-295px -248px;width:59px;height:59px}
+.sprite-missions.icons-gheist{background-position:-354px -248px;width:59px;height:59px}
+.sprite-missions.icons-globz{background-position:-413px -248px;width:59px;height:59px}
+.sprite-missions.icons-huracan{background-position:-472px -248px;width:59px;height:59px}
+.sprite-missions.icons-jungo{background-position:-531px -248px;width:59px;height:59px}
+.sprite-missions.icons-junkz{background-position:-0px -307px;width:59px;height:59px}
+.sprite-missions.icons-junta{background-position:-59px -307px;width:59px;height:59px}
+.sprite-missions.icons-ldallstar{background-position:-118px -307px;width:59px;height:59px}
+.sprite-missions.icons-ldbangers{background-position:-177px -307px;width:59px;height:59px}
+.sprite-missions.icons-ldberzerk{background-position:-236px -307px;width:59px;height:59px}
+.sprite-missions.icons-ldfangpiclang{background-position:-295px -307px;width:59px;height:59px}
+.sprite-missions.icons-ldfreaks{background-position:-354px -307px;width:59px;height:59px}
+.sprite-missions.icons-ldfrozn{background-position:-413px -307px;width:59px;height:59px}
+.sprite-missions.icons-ldgheist{background-position:-472px -307px;width:59px;height:59px}
+.sprite-missions.icons-ldhuracan{background-position:-531px -307px;width:59px;height:59px}
+.sprite-missions.icons-ldjungo{background-position:-0px -366px;width:59px;height:59px}
+.sprite-missions.icons-ldjunkz{background-position:-59px -366px;width:59px;height:59px}
+.sprite-missions.icons-ldjunta{background-position:-118px -366px;width:59px;height:59px}
+.sprite-missions.icons-ldmontana{background-position:-177px -366px;width:59px;height:59px}
+.sprite-missions.icons-ldnightmare{background-position:-236px -366px;width:59px;height:59px}
+.sprite-missions.icons-ldpiranas{background-position:-295px -366px;width:59px;height:59px}
+.sprite-missions.icons-ldpussycats{background-position:-354px -366px;width:59px;height:59px}
+.sprite-missions.icons-ldrescue{background-position:-413px -366px;width:59px;height:59px}
+.sprite-missions.icons-ldroots{background-position:-472px -366px;width:59px;height:59px}
+.sprite-missions.icons-ldsakrohm{background-position:-531px -366px;width:59px;height:59px}
+.sprite-missions.icons-ldsentinel{background-position:-0px -425px;width:59px;height:59px}
+.sprite-missions.icons-ldskeelz{background-position:-59px -425px;width:59px;height:59px}
+.sprite-missions.icons-lduluwatu{background-position:-118px -425px;width:59px;height:59px}
+.sprite-missions.icons-lduppers{background-position:-177px -425px;width:59px;height:59px}
+.sprite-missions.icons-ldvortex{background-position:-236px -425px;width:59px;height:59px}
+.sprite-missions.icons-leader{background-position:-295px -425px;width:59px;height:59px}
+.sprite-missions.icons-montana{background-position:-354px -425px;width:59px;height:59px}
+.sprite-missions.icons-newblood{background-position:-413px -425px;width:59px;height:59px}
+.sprite-missions.icons-nightmare{background-position:-472px -425px;width:59px;height:59px}
+.sprite-missions.icons-pillz_moins{background-position:-531px -425px;width:59px;height:59px}
+.sprite-missions.icons-pillz_plus{background-position:-0px -484px;width:59px;height:59px}
+.sprite-missions.icons-piranas{background-position:-59px -484px;width:59px;height:59px}
+.sprite-missions.icons-poison{background-position:-118px -484px;width:59px;height:59px}
+.sprite-missions.icons-pussycats{background-position:-177px -484px;width:59px;height:59px}
+.sprite-missions.icons-rescue{background-position:-236px -484px;width:59px;height:59px}
+.sprite-missions.icons-roots{background-position:-295px -484px;width:59px;height:59px}
+.sprite-missions.icons-sakrohm{background-position:-354px -484px;width:59px;height:59px}
+.sprite-missions.icons-secrete{background-position:-413px -484px;width:59px;height:59px}
+.sprite-missions.icons-sentinel{background-position:-472px -484px;width:59px;height:59px}
+.sprite-missions.icons-skeelz{background-position:-531px -484px;width:59px;height:59px}
+.sprite-missions.icons-solo{background-position:-0px -543px;width:59px;height:59px}
+.sprite-missions.icons-stop_degat{background-position:-59px -543px;width:59px;height:59px}
+.sprite-missions.icons-survivor{background-position:-118px -543px;width:59px;height:59px}
+.sprite-missions.icons-tournois{background-position:-177px -543px;width:59px;height:59px}
+.sprite-missions.icons-uluwatu{background-position:-236px -543px;width:59px;height:59px}
+.sprite-missions.icons-uppers{background-position:-295px -543px;width:59px;height:59px}
+.sprite-missions.icons-victory{background-position:-354px -543px;width:59px;height:59px}
+.sprite-missions.icons-vie_plus{background-position:-413px -543px;width:59px;height:59px}
+.sprite-missions.icons-vortex{background-position:-472px -543px;width:59px;height:59px}
+.sprite-missions.left{background-position:-531px -543px;width:20px;height:38px}
+.sprite-missions.locked{background-position:-0px -602px;width:31px;height:29px}
+.sprite-missions.middle{background-position:-31px -602px;width:1px;height:38px}
+.sprite-missions.missions_xp_bg{background-position:-32px -602px;width:201px;height:9px}
+.sprite-missions.missions_xp_full{background-position:-233px -602px;width:201px;height:9px}
+.sprite-missions.missions_xp_inprogress{background-position:-434px -602px;width:201px;height:9px}
+.sprite-missions.right{background-position:-635px -602px;width:20px;height:38px}
+.sprite-missions.secret{background-position:-655px -602px;width:61px;height:38px}
+.sprite-missions.tick_lock{background-position:-716px -602px;width:40px;height:23px}
+.sprite-missions.tick_ok{background-position:-756px -602px;width:40px;height:23px}
+.sprite-missions.tick_unlock{background-position:-796px -602px;width:40px;height:23px}
+.sprite-missions.unlocked{background-position:-0px -640px;width:31px;height:29px}
+.sprite-smileys{background:url(http://beta.urban-rivals.com/img/sprites/smileys/smileys.png?1300887910) no-repeat top left;display:inline-block}
+.sprite-smileys.mini1_angel{background-position:-0px -0px;width:12px;height:14px}
+.sprite-smileys.mini1_biggrin{background-position:-12px -0px;width:12px;height:12px}
+.sprite-smileys.mini1_blush{background-position:-24px -0px;width:12px;height:12px}
+.sprite-smileys.mini1_bored{background-position:-36px -0px;width:12px;height:12px}
+.sprite-smileys.mini1_censored{background-position:-48px -0px;width:12px;height:12px}
+.sprite-smileys.mini1_cheerful{background-position:-60px -0px;width:12px;height:12px}
+.sprite-smileys.mini1_confused{background-position:-72px -0px;width:12px;height:18px}
+.sprite-smileys.mini1_cool{background-position:-84px -0px;width:12px;height:12px}
+.sprite-smileys.mini1_cry{background-position:-96px -0px;width:12px;height:12px}
+.sprite-smileys.mini1_depressed{background-position:-108px -0px;width:12px;height:19px}
+.sprite-smileys.mini1_devil{background-position:-0px -19px;width:12px;height:12px}
+.sprite-smileys.mini1_dorkygrin{background-position:-12px -19px;width:12px;height:12px}
+.sprite-smileys.mini1_eek{background-position:-24px -19px;width:12px;height:12px}
+.sprite-smileys.mini1_faint{background-position:-36px -19px;width:12px;height:12px}
+.sprite-smileys.mini1_good{background-position:-48px -19px;width:16px;height:12px}
+.sprite-smileys.mini1_grin{background-position:-64px -19px;width:12px;height:12px}
+.sprite-smileys.mini1_happy{background-position:-76px -19px;width:12px;height:12px}
+.sprite-smileys.mini1_kawaii{background-position:-88px -19px;width:12px;height:12px}
+.sprite-smileys.mini1_loveeye{background-position:-100px -19px;width:12px;height:12px}
+.sprite-smileys.mini1_madeup{background-position:-112px -19px;width:12px;height:12px}
+.sprite-smileys.mini1_mad{background-position:-0px -31px;width:12px;height:12px}
+.sprite-smileys.mini1_nosey{background-position:-12px -31px;width:12px;height:12px}
+.sprite-smileys.mini1_notsure{background-position:-24px -31px;width:12px;height:12px}
+.sprite-smileys.mini1_pirate{background-position:-36px -31px;width:12px;height:12px}
+.sprite-smileys.mini1_sad{background-position:-48px -31px;width:12px;height:12px}
+.sprite-smileys.mini1_shock{background-position:-60px -31px;width:12px;height:16px}
+.sprite-smileys.mini1_sleep{background-position:-72px -31px;width:14px;height:19px}
+.sprite-smileys.mini1_smirk{background-position:-86px -31px;width:12px;height:12px}
+.sprite-smileys.mini1_sneer{background-position:-98px -31px;width:12px;height:12px}
+.sprite-smileys.mini1_star{background-position:-110px -31px;width:17px;height:19px}
+.sprite-smileys.mini1_supertired{background-position:-0px -50px;width:16px;height:19px}
+.sprite-smileys.mini1_tensed{background-position:-16px -50px;width:12px;height:12px}
+.sprite-smileys.mini1_tongue{background-position:-28px -50px;width:12px;height:12px}
+.sprite-smileys.mini1_undecided{background-position:-40px -50px;width:12px;height:12px}
+.sprite-smileys.mini1_weird{background-position:-52px -50px;width:14px;height:18px}
+.sprite-smileys.mini1_wink{background-position:-66px -50px;width:12px;height:12px}
+.sprite-useragents{background:url(http://beta.urban-rivals.com/img/sprites/useragents/useragents.png?1301316224) no-repeat top left;display:inline-block}
+.sprite-useragents.android-16x16{background-position:-0px -0px;width:16px;height:16px}
+.sprite-useragents.android-32x32{background-position:-16px -0px;width:32px;height:32px}
+.sprite-useragents.android-64x64{background-position:-48px -0px;width:64px;height:64px}
+.sprite-useragents.apple-16x16{background-position:-112px -0px;width:16px;height:16px}
+.sprite-useragents.apple-32x32{background-position:-128px -0px;width:32px;height:32px}
+.sprite-useragents.apple-64x64{background-position:-160px -0px;width:64px;height:64px}
+.sprite-useragents.camino-16x16{background-position:-224px -0px;width:16px;height:16px}
+.sprite-useragents.camino-32x32{background-position:-240px -0px;width:32px;height:32px}
+.sprite-useragents.camino-64x64{background-position:-272px -0px;width:64px;height:64px}
+.sprite-useragents.chrome-16x16{background-position:-336px -0px;width:16px;height:16px}
+.sprite-useragents.chrome-32x32{background-position:-0px -64px;width:32px;height:32px}
+.sprite-useragents.chrome-64x64{background-position:-32px -64px;width:64px;height:64px}
+.sprite-useragents.chrome11-16x16{background-position:-96px -64px;width:16px;height:16px}
+.sprite-useragents.chrome11-32x32{background-position:-112px -64px;width:32px;height:32px}
+.sprite-useragents.chrome11-64x64{background-position:-144px -64px;width:64px;height:64px}
+.sprite-useragents.epiphany-16x16{background-position:-208px -64px;width:16px;height:16px}
+.sprite-useragents.epiphany-32x32{background-position:-224px -64px;width:32px;height:32px}
+.sprite-useragents.epiphany-64x64{background-position:-256px -64px;width:64px;height:64px}
+.sprite-useragents.firebird-16x16{background-position:-320px -64px;width:16px;height:16px}
+.sprite-useragents.firebird-32x32{background-position:-336px -64px;width:32px;height:32px}
+.sprite-useragents.firebird-48x48{background-position:-0px -128px;width:48px;height:48px}
+.sprite-useragents.firefox-16x16{background-position:-48px -128px;width:16px;height:16px}
+.sprite-useragents.firefox-32x32{background-position:-64px -128px;width:32px;height:32px}
+.sprite-useragents.firefox-64x64{background-position:-96px -128px;width:64px;height:64px}
+.sprite-useragents.flash-16x16{background-position:-160px -128px;width:16px;height:16px}
+.sprite-useragents.flash-32x32{background-position:-176px -128px;width:32px;height:32px}
+.sprite-useragents.flash-64x64{background-position:-208px -128px;width:64px;height:64px}
+.sprite-useragents.flock-16x16{background-position:-272px -128px;width:16px;height:16px}
+.sprite-useragents.flock-32x32{background-position:-288px -128px;width:32px;height:32px}
+.sprite-useragents.flock-64x64{background-position:-320px -128px;width:64px;height:64px}
+.sprite-useragents.freebsd-16x16{background-position:-0px -192px;width:16px;height:16px}
+.sprite-useragents.freebsd-32x32{background-position:-16px -192px;width:32px;height:32px}
+.sprite-useragents.freebsd-64x64{background-position:-48px -192px;width:64px;height:64px}
+.sprite-useragents.galeon-16x16{background-position:-112px -192px;width:16px;height:16px}
+.sprite-useragents.galeon-32x32{background-position:-128px -192px;width:32px;height:32px}
+.sprite-useragents.galeon-64x64{background-position:-160px -192px;width:64px;height:64px}
+.sprite-useragents.icab-16x16{background-position:-224px -192px;width:16px;height:16px}
+.sprite-useragents.icab-32x32{background-position:-240px -192px;width:32px;height:32px}
+.sprite-useragents.icab-64x64{background-position:-272px -192px;width:64px;height:64px}
+.sprite-useragents.ie-16x16{background-position:-336px -192px;width:16px;height:16px}
+.sprite-useragents.ie-32x32{background-position:-0px -256px;width:32px;height:32px}
+.sprite-useragents.ie-64x64{background-position:-32px -256px;width:64px;height:64px}
+.sprite-useragents.ie3-16x16{background-position:-96px -256px;width:16px;height:16px}
+.sprite-useragents.ie3-32x32{background-position:-112px -256px;width:32px;height:32px}
+.sprite-useragents.ie3-48x48{background-position:-144px -256px;width:48px;height:48px}
+.sprite-useragents.ie4-16x16{background-position:-192px -256px;width:16px;height:16px}
+.sprite-useragents.ie4-32x32{background-position:-208px -256px;width:32px;height:32px}
+.sprite-useragents.ie4-64x64{background-position:-240px -256px;width:64px;height:64px}
+.sprite-useragents.ie4-mac-16x16{background-position:-304px -256px;width:16px;height:16px}
+.sprite-useragents.ie4-mac-32x32{background-position:-320px -256px;width:32px;height:32px}
+.sprite-useragents.ie4-mac-64x64{background-position:-0px -320px;width:64px;height:64px}
+.sprite-useragents.ie5-mac-16x16{background-position:-64px -320px;width:16px;height:16px}
+.sprite-useragents.ie5-mac-32x32{background-position:-80px -320px;width:32px;height:32px}
+.sprite-useragents.ie5-mac-64x64{background-position:-112px -320px;width:64px;height:64px}
+.sprite-useragents.ie6-16x16{background-position:-176px -320px;width:16px;height:16px}
+.sprite-useragents.ie6-32x32{background-position:-192px -320px;width:32px;height:32px}
+.sprite-useragents.ie6-64x64{background-position:-224px -320px;width:64px;height:64px}
+.sprite-useragents.ie7-16x16{background-position:-288px -320px;width:16px;height:16px}
+.sprite-useragents.ie7-32x32{background-position:-304px -320px;width:32px;height:32px}
+.sprite-useragents.ie7-64x64{background-position:-336px -320px;width:64px;height:64px}
+.sprite-useragents.ipad-16x16{background-position:-0px -384px;width:16px;height:16px}
+.sprite-useragents.ipad-32x32{background-position:-16px -384px;width:32px;height:32px}
+.sprite-useragents.ipad-64x64{background-position:-48px -384px;width:64px;height:64px}
+.sprite-useragents.iphone-16x16{background-position:-112px -384px;width:16px;height:16px}
+.sprite-useragents.iphone-32x32{background-position:-128px -384px;width:32px;height:32px}
+.sprite-useragents.iphone-64x64{background-position:-160px -384px;width:64px;height:64px}
+.sprite-useragents.k-meleon-16x16{background-position:-224px -384px;width:16px;height:16px}
+.sprite-useragents.k-meleon-32x32{background-position:-240px -384px;width:32px;height:32px}
+.sprite-useragents.k-meleon-64x64{background-position:-272px -384px;width:64px;height:64px}
+.sprite-useragents.konqueror-16x16{background-position:-336px -384px;width:16px;height:16px}
+.sprite-useragents.konqueror-32x32{background-position:-0px -448px;width:32px;height:32px}
+.sprite-useragents.konqueror-64x64{background-position:-32px -448px;width:64px;height:64px}
+.sprite-useragents.linux-16x16{background-position:-96px -448px;width:16px;height:16px}
+.sprite-useragents.linux-32x32{background-position:-112px -448px;width:32px;height:32px}
+.sprite-useragents.linux-64x64{background-position:-144px -448px;width:64px;height:64px}
+.sprite-useragents.mozilla-16x16{background-position:-208px -448px;width:16px;height:16px}
+.sprite-useragents.mozilla-32x32{background-position:-224px -448px;width:32px;height:32px}
+.sprite-useragents.mozilla-64x64{background-position:-256px -448px;width:64px;height:64px}
+.sprite-useragents.netscape-16x16{background-position:-320px -448px;width:16px;height:16px}
+.sprite-useragents.netscape-32x32{background-position:-336px -448px;width:32px;height:32px}
+.sprite-useragents.netscape-64x64{background-position:-0px -512px;width:64px;height:64px}
+.sprite-useragents.netscape4-16x16{background-position:-64px -512px;width:16px;height:16px}
+.sprite-useragents.netscape4-32x32{background-position:-80px -512px;width:32px;height:32px}
+.sprite-useragents.netscape4-64x64{background-position:-112px -512px;width:64px;height:64px}
+.sprite-useragents.netscape6-16x16{background-position:-176px -512px;width:16px;height:16px}
+.sprite-useragents.netscape6-32x32{background-position:-192px -512px;width:32px;height:32px}
+.sprite-useragents.netscape6-64x64{background-position:-224px -512px;width:64px;height:64px}
+.sprite-useragents.netscape7-16x16{background-position:-288px -512px;width:16px;height:16px}
+.sprite-useragents.netscape7-32x32{background-position:-304px -512px;width:32px;height:32px}
+.sprite-useragents.netscape7-64x64{background-position:-336px -512px;width:64px;height:64px}
+.sprite-useragents.netscape8-16x16{background-position:-0px -576px;width:16px;height:16px}
+.sprite-useragents.netscape8-32x32{background-position:-16px -576px;width:32px;height:32px}
+.sprite-useragents.netscape8-64x64{background-position:-48px -576px;width:64px;height:64px}
+.sprite-useragents.netscape9-16x16{background-position:-112px -576px;width:16px;height:16px}
+.sprite-useragents.netscape9-32x32{background-position:-128px -576px;width:32px;height:32px}
+.sprite-useragents.netscape9-64x64{background-position:-160px -576px;width:64px;height:64px}
+.sprite-useragents.omniweb-16x16{background-position:-224px -576px;width:16px;height:16px}
+.sprite-useragents.omniweb-32x32{background-position:-240px -576px;width:32px;height:32px}
+.sprite-useragents.omniweb-64x64{background-position:-272px -576px;width:62px;height:62px}
+.sprite-useragents.openbsd-16x16{background-position:-334px -576px;width:16px;height:16px}
+.sprite-useragents.openbsd-32x32{background-position:-0px -640px;width:32px;height:32px}
+.sprite-useragents.openbsd-64x64{background-position:-32px -640px;width:64px;height:64px}
+.sprite-useragents.opera-16x16{background-position:-96px -640px;width:16px;height:16px}
+.sprite-useragents.opera-32x32{background-position:-112px -640px;width:32px;height:32px}
+.sprite-useragents.opera-64x64{background-position:-144px -640px;width:64px;height:64px}
+.sprite-useragents.opera6-16x16{background-position:-208px -640px;width:16px;height:16px}
+.sprite-useragents.opera6-32x32{background-position:-224px -640px;width:32px;height:32px}
+.sprite-useragents.opera6-48x48{background-position:-256px -640px;width:48px;height:48px}
+.sprite-useragents.safari-16x16{background-position:-304px -640px;width:16px;height:16px}
+.sprite-useragents.safari-32x32{background-position:-320px -640px;width:32px;height:32px}
+.sprite-useragents.safari-64x64{background-position:-0px -704px;width:64px;height:64px}
+.sprite-useragents.seamonkey-16x16{background-position:-64px -704px;width:16px;height:16px}
+.sprite-useragents.seamonkey-32x32{background-position:-80px -704px;width:32px;height:32px}
+.sprite-useragents.seamonkey-64x64{background-position:-112px -704px;width:64px;height:64px}
+.sprite-useragents.shiira-16x16{background-position:-176px -704px;width:16px;height:16px}
+.sprite-useragents.shiira-32x32{background-position:-192px -704px;width:32px;height:32px}
+.sprite-useragents.shiira-64x64{background-position:-224px -704px;width:64px;height:64px}
+.sprite-useragents.swift-16x16{background-position:-288px -704px;width:16px;height:16px}
+.sprite-useragents.swift-32x32{background-position:-304px -704px;width:32px;height:32px}
+.sprite-useragents.swift-64x64{background-position:-336px -704px;width:64px;height:64px}
+.sprite-useragents.win7-16x16{background-position:-0px -768px;width:16px;height:16px}
+.sprite-useragents.win7-32x32{background-position:-16px -768px;width:32px;height:32px}
+.sprite-useragents.win7-64x64{background-position:-48px -768px;width:64px;height:64px}
+.sprite-useragents.win98-16x16{background-position:-112px -768px;width:16px;height:16px}
+.sprite-useragents.win98-32x32{background-position:-128px -768px;width:32px;height:32px}
+.sprite-useragents.win98-64x64{background-position:-160px -768px;width:64px;height:64px}
+.sprite-useragents.winvista-16x16{background-position:-224px -768px;width:16px;height:16px}
+.sprite-useragents.winvista-32x32{background-position:-240px -768px;width:32px;height:32px}
+.sprite-useragents.winvista-64x64{background-position:-272px -768px;width:64px;height:64px}
+.sprite-useragents.winxp-16x16{background-position:-336px -768px;width:16px;height:16px}
+.sprite-useragents.winxp-32x32{background-position:-0px -832px;width:32px;height:32px}
+.sprite-useragents.winxp-64x64{background-position:-32px -832px;width:64px;height:64px}
+.sprite-xpnumbers{background:url(http://beta.urban-rivals.com/img/sprites/ui/xpnumbers/xpnumbers.png?1316079199) no-repeat top left;display:inline-block}
+.sprite-xpnumbers.xp0-grey-mono{background-position:-0px -0px;width:13px;height:16px}
+.sprite-xpnumbers.xp0-grey-white-mono{background-position:-13px -0px;width:13px;height:16px}
+.sprite-xpnumbers.xp0-grey-white{background-position:-26px -0px;width:14px;height:16px}
+.sprite-xpnumbers.xp0-grey{background-position:-40px -0px;width:13px;height:16px}
+.sprite-xpnumbers.xp0-mono{background-position:-53px -0px;width:11px;height:15px}
+.sprite-xpnumbers.xp0-orange-black-mono{background-position:-64px -0px;width:11px;height:15px}
+.sprite-xpnumbers.xp0-orange-black{background-position:-75px -0px;width:11px;height:15px}
+.sprite-xpnumbers.xp0-orange-mono{background-position:-86px -0px;width:11px;height:15px}
+.sprite-xpnumbers.xp0-orange-white-mono{background-position:-97px -0px;width:13px;height:16px}
+.sprite-xpnumbers.xp0-orange-white{background-position:-110px -0px;width:13px;height:16px}
+.sprite-xpnumbers.xp0-orange{background-position:-0px -16px;width:11px;height:15px}
+.sprite-xpnumbers.xp0{background-position:-11px -16px;width:11px;height:15px}
+.sprite-xpnumbers.xp1-grey-mono{background-position:-22px -16px;width:9px;height:16px}
+.sprite-xpnumbers.xp1-grey-white-mono{background-position:-31px -16px;width:9px;height:16px}
+.sprite-xpnumbers.xp1-grey-white{background-position:-40px -16px;width:11px;height:16px}
+.sprite-xpnumbers.xp1-grey{background-position:-51px -16px;width:9px;height:16px}
+.sprite-xpnumbers.xp1-mono{background-position:-60px -16px;width:8px;height:15px}
+.sprite-xpnumbers.xp1-orange-black-mono{background-position:-68px -16px;width:8px;height:15px}
+.sprite-xpnumbers.xp1-orange-black{background-position:-76px -16px;width:8px;height:15px}
+.sprite-xpnumbers.xp1-orange-mono{background-position:-84px -16px;width:8px;height:15px}
+.sprite-xpnumbers.xp1-orange-white-mono{background-position:-0px -32px;width:9px;height:16px}
+.sprite-xpnumbers.xp1-orange-white{background-position:-9px -32px;width:9px;height:16px}
+.sprite-xpnumbers.xp1-orange{background-position:-18px -32px;width:8px;height:15px}
+.sprite-xpnumbers.xp1{background-position:-26px -32px;width:8px;height:15px}
+.sprite-xpnumbers.xp2-grey-mono{background-position:-34px -32px;width:13px;height:16px}
+.sprite-xpnumbers.xp2-grey-white-mono{background-position:-47px -32px;width:13px;height:16px}
+.sprite-xpnumbers.xp2-grey-white{background-position:-60px -32px;width:14px;height:16px}
+.sprite-xpnumbers.xp2-grey{background-position:-74px -32px;width:13px;height:16px}
+.sprite-xpnumbers.xp2-mono{background-position:-87px -32px;width:11px;height:15px}
+.sprite-xpnumbers.xp2-orange-black-mono{background-position:-98px -32px;width:11px;height:15px}
+.sprite-xpnumbers.xp2-orange-black{background-position:-0px -48px;width:11px;height:15px}
+.sprite-xpnumbers.xp2-orange-mono{background-position:-11px -48px;width:11px;height:15px}
+.sprite-xpnumbers.xp2-orange-white-mono{background-position:-22px -48px;width:13px;height:16px}
+.sprite-xpnumbers.xp2-orange-white{background-position:-35px -48px;width:13px;height:16px}
+.sprite-xpnumbers.xp2-orange{background-position:-48px -48px;width:11px;height:15px}
+.sprite-xpnumbers.xp2{background-position:-59px -48px;width:11px;height:15px}
+.sprite-xpnumbers.xp3-grey-mono{background-position:-70px -48px;width:13px;height:16px}
+.sprite-xpnumbers.xp3-grey-white-mono{background-position:-83px -48px;width:13px;height:16px}
+.sprite-xpnumbers.xp3-grey-white{background-position:-96px -48px;width:15px;height:16px}
+.sprite-xpnumbers.xp3-grey{background-position:-111px -48px;width:13px;height:16px}
+.sprite-xpnumbers.xp3-mono{background-position:-0px -64px;width:11px;height:15px}
+.sprite-xpnumbers.xp3-orange-black-mono{background-position:-11px -64px;width:11px;height:15px}
+.sprite-xpnumbers.xp3-orange-black{background-position:-22px -64px;width:11px;height:15px}
+.sprite-xpnumbers.xp3-orange-mono{background-position:-33px -64px;width:11px;height:15px}
+.sprite-xpnumbers.xp3-orange-white-mono{background-position:-44px -64px;width:13px;height:16px}
+.sprite-xpnumbers.xp3-orange-white{background-position:-57px -64px;width:13px;height:16px}
+.sprite-xpnumbers.xp3-orange{background-position:-70px -64px;width:11px;height:15px}
+.sprite-xpnumbers.xp3{background-position:-81px -64px;width:11px;height:15px}
+.sprite-xpnumbers.xp4-grey-mono{background-position:-92px -64px;width:13px;height:16px}
+.sprite-xpnumbers.xp4-grey-white-mono{background-position:-105px -64px;width:13px;height:16px}
+.sprite-xpnumbers.xp4-grey-white{background-position:-0px -80px;width:14px;height:16px}
+.sprite-xpnumbers.xp4-grey{background-position:-14px -80px;width:13px;height:16px}
+.sprite-xpnumbers.xp4-mono{background-position:-27px -80px;width:11px;height:15px}
+.sprite-xpnumbers.xp4-orange-black-mono{background-position:-38px -80px;width:11px;height:15px}
+.sprite-xpnumbers.xp4-orange-black{background-position:-49px -80px;width:11px;height:15px}
+.sprite-xpnumbers.xp4-orange-mono{background-position:-60px -80px;width:11px;height:15px}
+.sprite-xpnumbers.xp4-orange-white-mono{background-position:-71px -80px;width:13px;height:16px}
+.sprite-xpnumbers.xp4-orange-white{background-position:-84px -80px;width:13px;height:16px}
+.sprite-xpnumbers.xp4-orange{background-position:-97px -80px;width:11px;height:15px}
+.sprite-xpnumbers.xp4{background-position:-108px -80px;width:11px;height:15px}
+.sprite-xpnumbers.xp5-grey-mono{background-position:-0px -96px;width:13px;height:16px}
+.sprite-xpnumbers.xp5-grey-white-mono{background-position:-13px -96px;width:13px;height:16px}
+.sprite-xpnumbers.xp5-grey-white{background-position:-26px -96px;width:14px;height:16px}
+.sprite-xpnumbers.xp5-grey{background-position:-40px -96px;width:13px;height:16px}
+.sprite-xpnumbers.xp5-mono{background-position:-53px -96px;width:11px;height:15px}
+.sprite-xpnumbers.xp5-orange-black-mono{background-position:-64px -96px;width:11px;height:15px}
+.sprite-xpnumbers.xp5-orange-black{background-position:-75px -96px;width:11px;height:15px}
+.sprite-xpnumbers.xp5-orange-mono{background-position:-86px -96px;width:11px;height:15px}
+.sprite-xpnumbers.xp5-orange-white-mono{background-position:-97px -96px;width:13px;height:16px}
+.sprite-xpnumbers.xp5-orange-white{background-position:-110px -96px;width:13px;height:16px}
+.sprite-xpnumbers.xp5-orange{background-position:-0px -112px;width:11px;height:15px}
+.sprite-xpnumbers.xp5{background-position:-11px -112px;width:11px;height:15px}
+.sprite-xpnumbers.xp6-grey-mono{background-position:-22px -112px;width:13px;height:16px}
+.sprite-xpnumbers.xp6-grey-white-mono{background-position:-35px -112px;width:13px;height:16px}
+.sprite-xpnumbers.xp6-grey-white{background-position:-48px -112px;width:13px;height:16px}
+.sprite-xpnumbers.xp6-grey{background-position:-61px -112px;width:13px;height:16px}
+.sprite-xpnumbers.xp6-mono{background-position:-74px -112px;width:11px;height:15px}
+.sprite-xpnumbers.xp6-orange-black-mono{background-position:-85px -112px;width:11px;height:15px}
+.sprite-xpnumbers.xp6-orange-black{background-position:-96px -112px;width:11px;height:15px}
+.sprite-xpnumbers.xp6-orange-mono{background-position:-107px -112px;width:11px;height:15px}
+.sprite-xpnumbers.xp6-orange-white-mono{background-position:-0px -128px;width:13px;height:16px}
+.sprite-xpnumbers.xp6-orange-white{background-position:-13px -128px;width:13px;height:16px}
+.sprite-xpnumbers.xp6-orange{background-position:-26px -128px;width:11px;height:15px}
+.sprite-xpnumbers.xp6{background-position:-37px -128px;width:11px;height:15px}
+.sprite-xpnumbers.xp7-grey-mono{background-position:-48px -128px;width:13px;height:16px}
+.sprite-xpnumbers.xp7-grey-white-mono{background-position:-61px -128px;width:13px;height:16px}
+.sprite-xpnumbers.xp7-grey-white{background-position:-74px -128px;width:13px;height:16px}
+.sprite-xpnumbers.xp7-grey{background-position:-87px -128px;width:13px;height:16px}
+.sprite-xpnumbers.xp7-mono{background-position:-100px -128px;width:11px;height:15px}
+.sprite-xpnumbers.xp7-orange-black-mono{background-position:-111px -128px;width:11px;height:15px}
+.sprite-xpnumbers.xp7-orange-black{background-position:-0px -144px;width:11px;height:15px}
+.sprite-xpnumbers.xp7-orange-mono{background-position:-11px -144px;width:11px;height:15px}
+.sprite-xpnumbers.xp7-orange-white-mono{background-position:-22px -144px;width:13px;height:16px}
+.sprite-xpnumbers.xp7-orange-white{background-position:-35px -144px;width:13px;height:16px}
+.sprite-xpnumbers.xp7-orange{background-position:-48px -144px;width:11px;height:15px}
+.sprite-xpnumbers.xp7{background-position:-59px -144px;width:11px;height:15px}
+.sprite-xpnumbers.xp8-grey-mono{background-position:-70px -144px;width:13px;height:16px}
+.sprite-xpnumbers.xp8-grey-white-mono{background-position:-83px -144px;width:13px;height:16px}
+.sprite-xpnumbers.xp8-grey-white{background-position:-96px -144px;width:13px;height:16px}
+.sprite-xpnumbers.xp8-grey{background-position:-109px -144px;width:13px;height:16px}
+.sprite-xpnumbers.xp8-mono{background-position:-0px -160px;width:11px;height:15px}
+.sprite-xpnumbers.xp8-orange-black-mono{background-position:-11px -160px;width:11px;height:15px}
+.sprite-xpnumbers.xp8-orange-black{background-position:-22px -160px;width:11px;height:15px}
+.sprite-xpnumbers.xp8-orange-mono{background-position:-33px -160px;width:11px;height:15px}
+.sprite-xpnumbers.xp8-orange-white-mono{background-position:-44px -160px;width:13px;height:16px}
+.sprite-xpnumbers.xp8-orange-white{background-position:-57px -160px;width:13px;height:16px}
+.sprite-xpnumbers.xp8-orange{background-position:-70px -160px;width:11px;height:15px}
+.sprite-xpnumbers.xp8{background-position:-81px -160px;width:11px;height:15px}
+.sprite-xpnumbers.xp9-grey-mono{background-position:-92px -160px;width:13px;height:16px}
+.sprite-xpnumbers.xp9-grey-white-mono{background-position:-105px -160px;width:13px;height:16px}
+.sprite-xpnumbers.xp9-grey-white{background-position:-0px -176px;width:13px;height:16px}
+.sprite-xpnumbers.xp9-grey{background-position:-13px -176px;width:13px;height:16px}
+.sprite-xpnumbers.xp9-mono{background-position:-26px -176px;width:11px;height:15px}
+.sprite-xpnumbers.xp9-orange-black-mono{background-position:-37px -176px;width:11px;height:15px}
+.sprite-xpnumbers.xp9-orange-black{background-position:-48px -176px;width:11px;height:15px}
+.sprite-xpnumbers.xp9-orange-mono{background-position:-59px -176px;width:11px;height:15px}
+.sprite-xpnumbers.xp9-orange-white-mono{background-position:-70px -176px;width:13px;height:16px}
+.sprite-xpnumbers.xp9-orange-white{background-position:-83px -176px;width:13px;height:16px}
+.sprite-xpnumbers.xp9-orange{background-position:-96px -176px;width:11px;height:15px}
+.sprite-xpnumbers.xp9{background-position:-107px -176px;width:11px;height:15px}

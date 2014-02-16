@@ -7,78 +7,71 @@ use utf8;
 use lib 'conf';
 use UR_Api;
 
-use lib 'lib';
 use Utils;
 use UR::Store::Player;
 
-use CGI;
-use CGI::Session;
 use Net::OAuth::Client;
 use Net::OAuth::AccessToken;
 use JSON::XS;
 
 sub new {
 	my ($class, %p) = @_;
-
+	
 	my $self = {
-		session => CGI::Session->new
+		session_method => $p{session_method}
 	};
+
 	$self->{consumer} = Net::OAuth::Client->new(
 		UR_Api::CONSUMER_KEY,
 		UR_Api::CONSUMER_SECRET,
 		request_token_path => UR_Api::URL_REQUEST_TOKEN,
 		access_token_path  => UR_Api::URL_ACCESS_TOKEN,
 		authorize_path     => UR_Api::URL_AUTHORIZE,
-		callback => UR_Api::URL_CALLBACK,
+		callback => $p{callback} || UR_Api::URL_CALLBACK,
 		session => sub { 
-			$self->{session}->param(@_); 
+			$self->{session_method}(@_); 
 		}
 	);
 	
 	return bless $self, $class;
 }
 
+sub _session {
+	my ($self, @params) = @_;
+	return $self->{session_method}(@params);
+}
+
 sub authorize {
 	my ($self) = @_;
 	
-	if ($self->{session}->param('player_id')) {
-		return $self->{session}->param('player_id');
+	if ($self->_session('player_id')) {
+		return $self->_session('player_id');
 	}
 	else {
-		$self->{session}->clear;
-		$self->{session}->expire('1M');
-		
-		my $auth_url = $self->{consumer}->authorize_url;
-		
-		print CGI::redirect(
-			-url => $auth_url,
-			-cookie => CGI::cookie(CGISESSID => $self->{session}->id)
-		);
-		exit;
+		return 0;
 	}
+}
+
+sub auth_url {
+	my ($self) = @_;
+
+	return $self->{consumer}->authorize_url;
 }
 
 sub player_id {
 	my ($self) = @_;
-	return $self->{session}->param('player_id');
+	return $self->_session('player_id');
 }
 
 sub is_success_access {
-	my ($self) = @_;
+	my ($self, $oauth_token) = @_;
 	
-	if ($self->{session}->param('player_id')) {
+	if ($self->_session('player_id')) {
 		return 1;
 	}
-
-	my $cgi = CGI->new;
-	my $verifier = $cgi->param('oauth_verifier') || '';
-	my $token = $cgi->param('oauth_token');
 	
 	my $access_token = eval {
-		$self->{consumer}->get_access_token(
-			$token,
-			$verifier,
-		);
+		$self->{consumer}->get_access_token($oauth_token, '');
 	};
 
 	if ($@) {
@@ -91,10 +84,8 @@ sub is_success_access {
 		return 0;
 	}
 	
-	$self->{session}->clear;
-	$self->{session}->param('access_token', $access_token->{token});
-	$self->{session}->param('access_token_secret', $access_token->{token_secret});
-	$self->{session}->flush;
+	$self->_session('access_token', $access_token->{token});
+	$self->_session('access_token_secret', $access_token->{token_secret});
 
 	$self->_init_player({
 		token => $access_token->{token},
@@ -113,15 +104,15 @@ sub _init_player {
 		access_keys => $access_keys
 	);
 	$player->update;
-	$self->{session}->param('player_id', $player->id);
+	$self->_session('player_id', $player->id);
 }
 
 sub _access_token {
 	my ($self) = @_;
 	return Net::OAuth::AccessToken->new(
 		client => $self->{consumer},
-		token => $self->{session}->param('access_token'),
-		token_secret => $self->{session}->param('access_token_secret')
+		token => $self->_session('access_token'),
+		token_secret => $self->_session('access_token_secret')
 	);
 }
 
@@ -131,7 +122,7 @@ sub query {
 	my $call_params = [{
 		call => $method,
 		params => $params,
-		(is_hash($filters) ? %$filters : undef)
+		is_hash($filters) ? %$filters :()
 	}];
 	my $call_json = JSON::XS::encode_json($call_params);
 	
@@ -140,7 +131,7 @@ sub query {
 	);
 	
 	unless ($res->is_success) {
-		debug {
+		webug {
 			error_msg => $res->decoded_content,
 			call_params => $call_params,
 			json => $call_json,
