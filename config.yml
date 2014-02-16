@@ -30,3 +30,4 @@ engines:
 #     start_tag: '[%'
 #     end_tag:   '%]'
 
+session: "YAML"
