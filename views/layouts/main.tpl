@@ -8,8 +8,8 @@
 	<link href="/css/ur/character.css" rel="stylesheet" type="text/css">
 	<link href="/css/ur/sprites.css" rel="stylesheet" type="text/css">
 
-	<script type="text/javascript" src="/javascript/jquery.js"></script> 
-	<script type="text/javascript" src="/javascript/jquery.tablesorter.js"></script> 
+	<script type="text/javascript" src="/javascripts/jquery.js"></script> 
+	<script type="text/javascript" src="/javascripts/jquery.tablesorter.js"></script> 
 </head>
 <body>
 <TMPL_VAR NAME=content>

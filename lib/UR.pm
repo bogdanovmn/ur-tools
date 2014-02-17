@@ -3,10 +3,12 @@ package UR;
 use Dancer ':syntax';
 
 use UR::Client;
+
 use UR::Action::Collection; 
 use UR::Action::Dubles; 
 use UR::Action::Update; 
 use UR::Action::AuthCallback; 
+
 use Utils;
 
 our $VERSION = '0.1002';
@@ -77,9 +79,9 @@ hook 'before_template_render' => sub {
 
 	if (vars->{player_id}) {
 		my $player_data = UR::Store::Player->choose(vars->{player_id})->load;
-		#while (my ($k, $v) = each %{UR::Store::Player->choose(vars->{player_id})->load}) {
-		#	$template_params->{$k} = $v;
-		#}
+		while (my ($k, $v) = each %{$player_data}) {
+			$template_params->{$k} = $v;
+		}
 	}
 };
 
@@ -88,7 +90,7 @@ get '/callback' => sub {
 		redirect '/collection';
 	}
 	else {
-		redirect '/';
+		redirect '../';
 	}
 };
 
@@ -107,7 +109,7 @@ get '/dubles' => sub {
 
 get '/update' => sub {
 	controller( action => 'Update' );
-	redirect '/collection';
+	redirect '../collection';
 };
 
 get '/' => sub {

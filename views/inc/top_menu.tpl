@@ -6,6 +6,8 @@
 		::
 		<a href='/dubles'>Dubles</a>
 		::
+		<a href='/booster'>Booster Helper</a>
+		::
 		<a href='/update'>Update</a>
 	</div>
 	<div id=user_info>
