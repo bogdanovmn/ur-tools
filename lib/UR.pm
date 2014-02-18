@@ -87,21 +87,17 @@ hook 'before_template_render' => sub {
 
 get '/callback' => sub {
 	if ( controller(action => 'AuthCallback') ) {
-		redirect '/collection';
+		redirect '../collection';
 	}
 	else {
 		redirect '../';
 	}
 };
 
-get '/collection' => sub {
+any '/collection' => sub {
 	controller( template => 'collection', action => 'Collection' );
 };
 
-post '/collection' => sub {
-	#webug [request->body(), params()];
-	controller( template => 'collection', action => 'Collection' );
-};
 
 get '/dubles' => sub {
 	controller( template => 'dubles', action => 'Dubles' );
