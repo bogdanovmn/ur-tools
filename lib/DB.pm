@@ -142,7 +142,7 @@ sub _execute_sql {
 	$sth->execute(@$params);
 	
 	if ($sth->err) {
-		die $settings->{error_msg};
+		die $settings->{error_msg}. ' '. $sth->errstr;
     }
 
 	return $sth;

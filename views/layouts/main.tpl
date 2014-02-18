@@ -12,6 +12,9 @@
 	<script type="text/javascript" src="/javascripts/jquery.tablesorter.js"></script> 
 </head>
 <body>
-<TMPL_VAR NAME=content>
+	<TMPL_INCLUDE NAME='../inc/top_menu.tpl'>
+	<div id=main>
+		<TMPL_VAR NAME=content>
+	</div>
 </body>
 </html>

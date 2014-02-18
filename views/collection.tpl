@@ -1,5 +1,3 @@
-<TMPL_INCLUDE NAME='inc/top.tpl'>
-
 <div id=filter_menu>
 	<TMPL_INCLUDE NAME='inc/chars_filter.tpl'>
 </div>
@@ -57,5 +55,3 @@
 	);
 
 </script>
-
-<TMPL_INCLUDE NAME='inc/foot.tpl'>

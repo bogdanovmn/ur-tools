@@ -14,10 +14,9 @@
 	<th>Avg price
 	<th>Max price
 	<th>Count
-	<th>Trends
 </thead>
 <tbody>
-<TMPL_LOOP NAME=chars>
+<TMPL_LOOP NAME=new_blood>
 	<tr> 
 		<td class='bg_rarity_<TMPL_VAR NAME=char_rarity>'><TMPL_VAR NAME=char_id>
 		<td><TMPL_VAR NAME=char_release_date>
@@ -42,7 +41,6 @@
 		<td class=price><TMPL_VAR NAME=char_avg_price>
 		<td class=price><TMPL_VAR NAME=char_max_price>
 		<td class=rate><TMPL_VAR NAME=char_count>
-		<td><img height=30px src="http://s.ccdn.ur-img.com/graphs/market/character_<TMPL_VAR NAME=char_id>_year_small.png?interval=1644233">
 </TMPL_LOOP>
 </tbody>
 </table>

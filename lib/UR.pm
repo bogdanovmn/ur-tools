@@ -6,12 +6,13 @@ use UR::Client;
 
 use UR::Action::Collection; 
 use UR::Action::Dubles; 
+use UR::Action::BoosterHelper; 
 use UR::Action::Update; 
 use UR::Action::AuthCallback; 
 
 use Utils;
 
-our $VERSION = '0.1002';
+our $VERSION = '0.1003';
 
 sub _template {
 	my $content = Dancer::template(@_);
@@ -101,6 +102,10 @@ any '/collection' => sub {
 
 get '/dubles' => sub {
 	controller( template => 'dubles', action => 'Dubles' );
+};
+
+get '/booster' => sub {
+	controller( template => 'booster', action => 'BoosterHelper' );
 };
 
 get '/update' => sub {
