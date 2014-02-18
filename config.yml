@@ -23,6 +23,7 @@ template: "HtmlTemplate"
 engines:
     HtmlTemplate:
         extension: 'tpl'
+        global_vars: 1
 
 # template: "template_toolkit"
 # engines:

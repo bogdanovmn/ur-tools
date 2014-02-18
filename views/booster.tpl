@@ -1,3 +1,5 @@
+<h2>New blood</h2>
+
 <table class=chars id=chars>
 <thead>
 <tr>
