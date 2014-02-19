@@ -14,7 +14,8 @@ sub main {
 	my $player_id = $params->{player_id};
 	
 	return {
-		new_blood => $class->_new_blood($params)
+		new_blood => $class->_new_blood($params),
+		booster => $class->_booster($params),
 	};
 }
 
@@ -59,4 +60,42 @@ sub _new_blood {
 	);
 }
 
+sub _booster {
+	my ($class, $params) = @_;
+
+	my $result = UR::Store->connect->query(qq|
+		SELECT
+			CL.id id,
+			CH.rarity,
+			MIN(P.min) min_price,
+			AVG(P.min) avg_price,
+			CL.pic_url pic_url,
+			SUBSTRING_INDEX(
+				SUBSTRING_INDEX(CL.pic_url, '/', -1),
+				'_',
+				1
+			) mnemonic
+		FROM chars CH
+		JOIN clan CL ON CL.id = CH.clan_id
+		JOIN prices P ON P.char_id = CH.id
+		WHERE CH.distrib
+		GROUP BY CL.id, CH.rarity
+	|);
+
+	my %clan_data;
+	foreach my $r (@$result) {
+		my $clan_id = $r->{id};
+		unless ($clan_data{$clan_id}) {
+			$clan_data{$clan_id} = { 
+				b_clan_mnemonic => $r->{mnemonic},
+				b_clan_pic_url => $r->{pic_url}
+			};
+		}
+
+		$clan_data{$clan_id}->{'b_'. $r->{rarity}. '_min_price'} = $r->{min_price};
+		$clan_data{$clan_id}->{'b_'. $r->{rarity}. '_avg_price'} = $r->{avg_price};
+	}
+
+	return [ map { { b_clan_id => $_, %{$clan_data{$_}} } } keys %clan_data ];
+}
 1;

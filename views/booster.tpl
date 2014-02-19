@@ -47,6 +47,32 @@
 </tbody>
 </table>
 
+<h2>Booster</h2>
+
+<table class=clan_statistic id=clan_statistic>
+<thead>
+<tr>
+	<th>Clan
+	<th>common min
+	<th>common avg
+	<th>rare min
+	<th>rare avg
+</thead>
+<tbody>
+<TMPL_LOOP NAME=booster>
+	<tr> 
+		<td>
+			<span class=hidden><TMPL_VAR NAME=char_clan_mnemonic></span>
+			<img src='<TMPL_VAR NAME=b_clan_pic_url>'>
+		
+		<td class='bg_rarity_c'><TMPL_VAR NAME=b_c_min_price>
+		<td class='bg_rarity_c'><TMPL_VAR NAME=b_c_avg_price>
+		<td class='bg_rarity_r'><TMPL_VAR NAME=b_r_min_price>
+		<td class='bg_rarity_r'><TMPL_VAR NAME=b_r_avg_price>
+</TMPL_LOOP>
+</tbody>
+</table>
+
 <script type="text/javascript">
 $(document).ready(
 	function() {
@@ -54,5 +80,11 @@ $(document).ready(
 			textExtraction: 'complex'
 		});
 	}
+	function() {
+		$("#clan_statistic").tablesorter({
+			textExtraction: 'complex'
+		});
+	}
+
 );
 </script>
