@@ -110,6 +110,10 @@ get '/booster' => sub {
 	controller( template => 'booster', action => 'BoosterHelper' );
 };
 
+get '/statistic' => sub {
+	controller( template => 'statistic', action => 'Statistic' );
+};
+
 get '/update' => sub {
 	controller( action => 'Update' );
 	redirect '../collection';
