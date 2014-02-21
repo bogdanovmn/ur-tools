@@ -1,6 +1,6 @@
 body, a, p, td, th { color: #000; font-family: Arial, Sans-serif; font-size: 12px; font-weight:normal; margin: 0px; padding: 0px; }
 
-table { width: 100%; border-collapse: collapse;  }
+table { border-collapse: collapse;  }
 
 .bg_rarity_c { background: #ba3b03; }
 .bg_rarity_u { background: #898989; }
@@ -37,6 +37,10 @@ table.chars th.headerSortDown {
 table.cahrs td.price { color: #f0f590; }
 table.cahrs td.rate { color: gray; }
 
+table.booster { width: 30%; }
+table.booster th { padding: 3px; text-align: right; }
+table.booster td { padding: 3px; text-align: right; }
+table.booster td.clan { padding: 3px; text-align: center; }
 
 div.clan_checkbox { display: inline-block; padding: 0px 2px; }
 img.for_checkbox { margin-top: -6px; }

@@ -68,7 +68,7 @@ sub _booster {
 			CL.id id,
 			CH.rarity,
 			MIN(P.min) min_price,
-			AVG(P.min) avg_price,
+			ROUND(AVG(P.min)) avg_price,
 			CL.pic_url pic_url,
 			SUBSTRING_INDEX(
 				SUBSTRING_INDEX(CL.pic_url, '/', -1),

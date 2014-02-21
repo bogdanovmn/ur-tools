@@ -49,7 +49,7 @@
 
 <h2>Booster</h2>
 
-<table class=clan_statistic id=clan_statistic>
+<table class=booster id=booster>
 <thead>
 <tr>
 	<th>Clan
@@ -61,7 +61,7 @@
 <tbody>
 <TMPL_LOOP NAME=booster>
 	<tr> 
-		<td>
+		<td class=clan>
 			<span class=hidden><TMPL_VAR NAME=char_clan_mnemonic></span>
 			<img src='<TMPL_VAR NAME=b_clan_pic_url>'>
 		
@@ -80,11 +80,13 @@ $(document).ready(
 			textExtraction: 'complex'
 		});
 	}
+);
+
+$(document).ready(
 	function() {
-		$("#clan_statistic").tablesorter({
+		$("#booster").tablesorter({
 			textExtraction: 'complex'
 		});
 	}
-
 );
 </script>
