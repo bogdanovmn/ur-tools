@@ -12,7 +12,7 @@ use UR::Action::AuthCallback;
 
 use Utils;
 
-our $VERSION = '0.1003';
+our $VERSION = '0.1004';
 
 sub _template {
 	my $content = Dancer::template(@_);
@@ -114,13 +114,17 @@ get '/statistic' => sub {
 	controller( template => 'statistic', action => 'Statistic' );
 };
 
-get '/update' => sub {
+get '/update/:target' => sub {
 	controller( action => 'Update' );
 	redirect '../collection';
 };
 
 get '/' => sub {
 	controller( template => 'index' );
+};
+
+any qr{.*} => sub {
+	controller( template => '404' );
 };
 
 true;

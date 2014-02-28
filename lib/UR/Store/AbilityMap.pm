@@ -10,7 +10,7 @@ use Utils;
 my @_PREFIX = (
 	{ 
 		desc => 'Отвага',
-		value => 'Отвага'
+		value => ['Отвага', 'Кураж']
 	},
 	{ 
 		desc => 'Отдача',

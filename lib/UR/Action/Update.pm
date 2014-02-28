@@ -12,11 +12,24 @@ sub main {
 	my ($class, $params) = @_;
 
 	my $import = UR::Import->new(consumer => $params->{consumer});
-	#$import->clans;
-	#$import->characters;
-	$import->prices;
-	$import->player;
-	$import->collection;
+	
+	if ($params->{target} eq 'clan') {
+		$import->clans;
+	}
+	elsif ($params->{target} eq 'chars') {
+		$import->characters;
+	}
+	elsif ($params->{target} eq 'prices') {
+		$import->prices;
+	}
+	elsif ($params->{target} eq 'player') {
+		$import->player;
+		$import->collection;
+	}
+	else {
+		webug 'wrong update target';
+	}
+
 	#$import->formats;
 }
 
