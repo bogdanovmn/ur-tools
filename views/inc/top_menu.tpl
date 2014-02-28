@@ -8,7 +8,7 @@
 		::
 		<a href='/booster'>Booster Helper</a>
 		::
-		<a href='/update'>Update</a>
+		<a href='/update/prices'>Update</a>
 	</div>
 	<div id=user_info>
 		<TMPL_VAR NAME="grade"> 

@@ -13,7 +13,7 @@ span.hidden { display: none; }
 	#links { position: absolute; left: 0px; width: 80%; background: #ddd; padding: 5px; }
 	#user_info { position: absolute; right: 0px; text-align: right; padding: 5px; width: 20%; background: #ddd; }
 
-#main { position: absolute; top: 25px; width: 100%;}
+#main { position: absolute; top: 25px; width: 100%; max-width: 1024px; }
 	#filter_menu { position: absolute; left: 0px; width: 22%; padding: 5px; }
 	#chars_list { position: absolute; right: 15%; width: 61%; padding: 5px; }
 	#deck_helper { position:absolute; right: 0px; width: 15%; padding: 5px; } 
