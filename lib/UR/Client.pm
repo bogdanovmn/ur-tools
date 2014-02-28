@@ -4,7 +4,6 @@ use strict;
 use warnings;
 use utf8;
 
-use lib 'conf';
 use UR_Api;
 
 use Utils;
