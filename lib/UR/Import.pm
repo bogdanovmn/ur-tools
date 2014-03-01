@@ -14,6 +14,7 @@ use UR::Store::AbilityMap;
 use Utils;
 use Cache;
 use Date::Format;
+use FindBin;
 
 
 sub new {
@@ -24,7 +25,7 @@ sub new {
 		cache => Cache->constructor(
 			fresh_time => Cache::FRESH_TIME_MINUTE * 10,
 			#storage => './cache/api_calls'
-			storage => '../../cache'
+			storage => $FindBin::Bin.'/../cache/api_calls'
 		)
 	};
 
