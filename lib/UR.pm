@@ -16,7 +16,7 @@ our $VERSION = '0.1004';
 
 sub _template {
 	my $content = Dancer::template(@_);
-	utf8::decode($content);
+	#utf8::decode($content);
 	return $content;
 }
 
@@ -97,34 +97,17 @@ get '/callback' => sub {
 	}
 };
 
-any '/collection' => sub {
-	controller( template => 'collection', action => 'Collection' );
-};
-
-
-get '/dubles' => sub {
-	controller( template => 'dubles', action => 'Dubles' );
-};
-
-get '/booster' => sub {
-	controller( template => 'booster', action => 'BoosterHelper' );
-};
-
-get '/statistic' => sub {
-	controller( template => 'statistic', action => 'Statistic' );
-};
+any '/collection' => sub { controller( template => 'collection', action => 'Collection' ) };
+get '/dubles'     => sub { controller( template => 'dubles',     action => 'Dubles' ) };
+get '/booster'    => sub { controller( template => 'booster',    action => 'BoosterHelper' ) };
+get '/statistic'  => sub { controller( template => 'statistic',  action => 'Statistic' ) };
 
 get '/update/:target' => sub {
 	controller( action => 'Update' );
 	redirect '../collection';
 };
 
-get '/' => sub {
-	controller( template => 'index' );
-};
-
-any qr{.*} => sub {
-	controller( template => '404' );
-};
+get '/' => sub { controller( template => 'index' ) };
+any qr{.*} => sub { controller( template => '404' ) };
 
 true;
