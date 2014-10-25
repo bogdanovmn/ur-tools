@@ -85,7 +85,7 @@ hook 'before_template_render' => sub {
 		}
 	}
 
-	$template_params->{ur_domain} = 'http://beta.urban-rivals.com';
+	$template_params->{ur_domain} = 'http://urban-rivals.com';
 };
 
 get '/callback' => sub {
